@@ -23,5 +23,5 @@ const handler = async (m, {text, usedPrefix, command, conn}) => {
   }
 };
 handler.tags = ['sticker', 'search'];
-handler.command = ['stickersearch', 'searchsticker', 'stickerssearch', 'searchstickers'];
+handler.command = ['stickersearch', 'ستيكرز'];
 export default handler;
