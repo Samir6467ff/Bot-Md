@@ -24,9 +24,9 @@ conn.sendFile(m.chat, ss, 'error.png', teks, m)
 //m.reply(teks)
 })
 } 
-handler.help = ['google', 'googlef'].map((v) => v + ' <pencarian>');
+handler.help = ['google', 'جوجل'].map((v) => v + ' <pencarian>');
 handler.tags = ['internet'];
-handler.command = /^googlef?$/i;
+handler.command = /^جوحل?$/i;
 export default handler;
 
 /*import {googleIt} from '@bochilteam/scraper';
