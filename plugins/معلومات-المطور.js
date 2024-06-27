@@ -9,33 +9,7 @@ const handler = async (m, {conn, usedPrefix}) => {
 
   const doc = ['pdf', 'zip', 'vnd.openxmlformats-officedocument.presentationml.presentation', 'vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'vnd.openxmlformats-officedocument.wordprocessingml.document'];
   const document = doc[Math.floor(Math.random() * doc.length)];
-  const text = `${tradutor.texto1[0]}
-
-  ${tradutor.texto1[1]}
-
-  ${tradutor.texto1[2]}
-
-  ${tradutor.texto1[3]}
-
-  ${tradutor.texto1[4]}
-
-  ${tradutor.texto1[5]}
-
-  ${tradutor.texto1[6]}
-
-  ${tradutor.texto1[7]}
-
-  ${tradutor.texto1[8]}
-
-  ${tradutor.texto1[9]}
-
-  ${tradutor.texto1[10]}
-
-  ${tradutor.texto1[11]}
-
-  ${tradutor.texto1[12]}
-  
-  ${tradutor.texto1[13]}`.trim();
+  const text = `${tradutor.texto1[0]}`.trim();
   const buttonMessage= {
     'document': {url: `https://github.com/BrunoSobrino/TheMystic-Bot-MD`},
     'mimetype': `application/${document}`,
@@ -61,7 +35,7 @@ const handler = async (m, {conn, usedPrefix}) => {
     'headerType': 6};
   conn.sendMessage(m.chat, buttonMessage, {quoted: m});
 };
-handler.help = ['owner', 'creator'];
+handler.help = ['owner', 'المطور'];
 handler.tags = ['info'];
-handler.command = /^(owner|creator|creador|propietario)$/i;
+handler.command = /^(owner|المطور)$/i;
 export default handler;
