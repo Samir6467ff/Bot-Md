@@ -32,5 +32,5 @@ let handler = async (m, { conn, text }) => {
 };
 handler.help = ['playstore <aplicacion>'];
 handler.tags = ['internet'];
-handler.command = /^(playstore)$/i;
+handler.command = /^(playstore|بلي)$/i;
 export default handler;
