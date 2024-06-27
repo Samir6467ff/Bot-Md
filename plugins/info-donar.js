@@ -12,7 +12,7 @@ const handler = async (m, {conn, usedPrefix, command}) => {
   const name = await conn.getName(m.sender);
   const donar =`
 *┏ ┅ ━━━━━━━━━━━━━━━━━ ┅ ━*
-*┇          「 ${tradutor.texto1[0]} 」*
+*┇ 「 ${tradutor.texto1[0]} 」*
 *┣ ┅ ━━━━━━━━━━━━━━━━━ ┅ ━*
 *┃ ${tradutor.texto1[1]} ${name}*
 *┃*
@@ -37,5 +37,5 @@ const handler = async (m, {conn, usedPrefix, command}) => {
 };
 handler.help = ['donasi'];
 handler.tags = ['info'];
-handler.command = /^dona(te|si)|donar|apoyar$/i;
+handler.command = /^donar|تبرع$/i;
 export default handler;
