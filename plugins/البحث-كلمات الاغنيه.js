@@ -47,18 +47,18 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         throw `*${tradutor.texto2[3]}*`;
     }
 };
-handler.help = ['lirik', 'letra'].map((v) => v + ' <Apa>');
+handler.help = ['lirik', 'كلمات'].map((v) => v + ' <Apa>');
 handler.tags = ['internet'];
-handler.command = /^(lirik|lyrics|lyric|letra)$/i;
+handler.command = /^(lirik|كلمات)$/i;
 export default handler;
 
 /* Creditos: https://github.com/darlyn1234 */
 async function searchLyrics(term) {
   try {
-    if (!term) return "🟥 Provide the name of the song to search the lyrics";
+    if (!term) return "🟥 قم بتوفير اسم الأغنية للبحث عن كلماتها";
     const geniusResponse = await axios.get(`https://letra-lime.vercel.app/genius?query=${term}`);
     const geniusData = geniusResponse.data;
-    if (!geniusData.length) return `🟨 Couldn't find any lyrics for "${term}"`;
+    if (!geniusData.length) return `🟨 لم أتمكن من العثور على أي كلمات للأغنية "${term}"`;
     const lyricsUrl = geniusData[0].url;
     const lyricsResponse = await axios.get(`https://letra-lime.vercel.app/lyrics?url=${lyricsUrl}`);
     const result = {
