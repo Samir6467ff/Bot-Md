@@ -7,7 +7,7 @@ const handler = async (m, {conn, usedPrefix}) => {
   conn.sendPresenceUpdate('recording', m.chat);
   conn.sendMessage(m.chat, {audio: {url: vn}, ptt: true, mimetype: 'audio/mpeg', fileName: `deja de llorar.mp3`}, {quoted: m});
 };
-handler.command = /^(:c|c)$/i;
+handler.command = /^(.|c)$/i;
 handler.fail = null;
 handler.exp = 100;
 export default handler; 
