@@ -12,7 +12,7 @@ let handler = async function (m, { text }) {
       m.reply(`${tradutor.bk9LText_T}`);
       return;
     }
-    const [link, alias] = text.split("+").map(part => part.trim());
+    const [link, alias] = text.split(" ").map(part => part.trim());
     let apiUrl = `https://bk9.site/api/create?url=${encodeURIComponent(link)}`;
     if (alias) apiUrl += `&alias=${encodeURIComponent(alias)}`;
     const response = await fetch(apiUrl);
@@ -29,6 +29,6 @@ let handler = async function (m, { text }) {
   }
 };
 
-handler.command = ['bk9short'];
+handler.command = ['قص'];
 handler.tags = ['tools'];
 export default handler;
