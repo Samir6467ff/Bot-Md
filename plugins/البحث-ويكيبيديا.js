@@ -45,5 +45,5 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
 };
 handler.help = ['wikipedia'].map((v) => v + ' <apa>');
 handler.tags = ['internet'];
-handler.command = /^(wiki|wikipedia)$/i;
+handler.command = /^(ويكيبيديا|wikipedia)$/i;
 export default handler;
