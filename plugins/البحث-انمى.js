@@ -13,8 +13,8 @@ const handler = async (m, {conn, text, usedPrefix}) => {
   try {
     const anime = await client.searchAnime(text);
     const result = anime.data[0];
-    const resultes = await translate(`${result.background}`, {to: 'es', autoCorrect: true});
-    const resultes2 = await translate(`${result.synopsis}`, {to: 'es', autoCorrect: true});
+    const resultes = await translate(`${result.background}`, {to: 'ar', autoCorrect: true});
+    const resultes2 = await translate(`${result.synopsis}`, {to: 'ar', autoCorrect: true});
     const AnimeInfo = `
 ${tradutor.texto2[0]} ${result.title}
 ${tradutor.texto2[1]}* ${result.type}
@@ -37,5 +37,5 @@ ${tradutor.texto2[15]} ${resultes2.text}`;
     throw `${tradutor.texto3}`;
   }
 };
-handler.command = /^(anime|animeinfo)$/i;
+handler.command = /^(anime|انمى)$/i;
 export default handler;
