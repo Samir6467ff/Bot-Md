@@ -33,5 +33,5 @@ const handler = async (m, {conn, args}) => {
     }
   }
 };
-handler.command = /^ytmp4doc|ytvdoc|ytmp4.2|ytv.2$/i;
+handler.command = /^فيديو3$/i;
 export default handler;
