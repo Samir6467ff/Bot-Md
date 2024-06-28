@@ -37,7 +37,7 @@ const handler = async (m, { conn, usedPrefix }) => {
   }
   await conn.sendMessage(m.chat, {text: `${tradutor.texto7}\n${usedPrefix}s\n${usedPrefix}s\n${usedPrefix}s`}, {quoted: m});
 };
-handler.help = ['del_reg_in_session_owner'];
+handler.help = ['dsowner'];
 handler.tags = ['owner'];
 handler.command = /^(تنظيف|dsowner)$/i;
 handler.rowner = true
