@@ -50,6 +50,6 @@ const handler = async (m, {conn, args, isPrems, isOwner, command}) => {
 };
 handler.help = ['ytd'];
 handler.tags = ['downloader'];
-handler.command = ['videodoc', 'documentvid', 'videodocumento', 'ytshort'];
+handler.command = ['فيديو'];
 handler.exp = 3;
 export default handler;
