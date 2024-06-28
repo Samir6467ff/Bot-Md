@@ -34,7 +34,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
     body: { text: `*—◉ Resultados obtenidos:* ${results.videos.length}\n*—◉ Video aleatorio:*\n*-› Title:* ${randomVideo.title}\n*-› Author:* ${randomVideo.author.name}\n*-› Views:* ${randomVideo.views}\n*-› ${traductor.texto2[0]}:* ${randomVideo.url}\n*-› Imagen:* ${randomVideo.thumbnail}`.trim() },
     footer: { text: `${global.wm}`.trim() },  
       header: {
-          title: `*< YouTube Search />*\n`,
+          title: `*< بحث اليوتيوب />*\n`,
           hasMediaAttachment: true,
           imageMessage: messa.imageMessage,
       },
@@ -99,5 +99,5 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
 };
 handler.help = ['ytsearch <texto>'];
 handler.tags = ['search'];
-handler.command = /^(ytsearch|yts|searchyt|buscaryt|videosearch|audiosearch)$/i;
+handler.command = /^(ytsearch|yts|يوتيوب)$/i;
 export default handler;
