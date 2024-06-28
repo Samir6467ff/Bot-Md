@@ -30,7 +30,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
   device = await getDevice(m.key.id);
 
   if (!text) throw `${tradutor.texto1[0]} _${usedPrefix + command} ${tradutor.texto1[1]} _${usedPrefix + command} https://youtu.be/JLWRZ8eWyZo?si=EmeS9fJvS_OkDk7p_`;
-  if (command === 'playyt' && (device == 'desktop' || device == 'web')) throw `*[❗] Los mensajes de botones aun no estan disponibles en WhatsApp web, acceda a su celular para poder ver y usar los mensajes con botones.*`;
+  if (command === 'تشغيل' && (device == 'desktop' || device == 'web')) throw `*[❗] Los mensajes de botones aun no estan disponibles en WhatsApp web, acceda a su celular para poder ver y usar los mensajes con botones.*`;
   if (enviando) return;
   enviando = true;
 
@@ -64,9 +64,9 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
     }
 
     const dataMessage = `${tradutor.texto4[0]} ${data.resultado.title}\n${tradutor.texto4[1]} ${data.resultado.publicDate}\n${tradutor.texto4[2]} ${data.resultado.channel}\n${tradutor.texto4[3]} ${data.resultado.url}`.trim();  
-    if (!text.includes('SN@') && command !== 'playyt') await conn.sendMessage(m.chat, { text: dataMessage }, { quoted: m });      
+    if (!text.includes('SN@') && command !== 'تشغيل') await conn.sendMessage(m.chat, { text: dataMessage }, { quoted: m });      
       
-    if (command === 'playyt') {
+    if (command === 'تشغيل') {
       var messa = await prepareWAMessageMedia({ image: {url: data.resultado.image}}, { upload: conn.waUploadToServer });
       let msg = generateWAMessageFromContent(m.chat, {
           viewOnceMessage: {
@@ -107,7 +107,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
     }    
 
     try {
-      if (command === 'play.1') {
+      if (command === 'ميوزك') {
         let apiUrls2 = [
           `https://api.cafirexos.com/api/v1/ytmp3?url=${data.resultado.url}`,
           `https://api.cafirexos.com/api/v2/ytmp3?url=${data.resultado.url}`,
@@ -133,7 +133,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
           enviando = false;
           throw `${tradutor.texto3}`;
         }
-      } else if (command === 'play.2') {
+      } else if (command === 'فيد') {
         let apiUrls22 = [
           `https://api.cafirexos.com/api/v1/ytmp4?url=${data.resultado.url}`,
           `https://api.cafirexos.com/api/v2/ytmp4?url=${data.resultado.url}`,            
@@ -182,7 +182,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
   }
 };
 
-handler.command = /^(play.1|play.2|playyt)$/i;
+handler.command = /^(ميوزك|فيد|تشغيل)$/i;
 export default handler;
 
 async function isValidYouTubeLink(link) {
