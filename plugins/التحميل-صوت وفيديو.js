@@ -17,10 +17,10 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
   try {
     const yt_play = await search(args.join(' '));
     let additionalText = '';
-    if (command === 'play3' || command == 'playdoc') {
-      additionalText = 'audio 🔊';
-    } else if (command === 'play4' || command == 'playdoc2') {
-      additionalText = 'video 🎥';
+    if (command === 'صوتيات' || command == 'playdoc') {
+      additionalText = 'موسيقي 🔊';
+    } else if (command === 'فيديوهات' || command == 'playdoc2') {
+      additionalText = 'فيديو 🎥';
     }
     const texto1 = `${tradutor.texto2[0]}\n
     ${tradutor.texto2[1]} ${yt_play[0].title}
@@ -34,7 +34,7 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
     ${tradutor.texto2[9]} ${yt_play[0].url}\n
     ${tradutor.texto2[10]} ${additionalText}, ${tradutor.texto2[11]}`.trim();
     conn.sendMessage(m.chat, {image: {url: yt_play[0].thumbnail}, caption: texto1}, {quoted: m});
-    if (command == 'play3' || command == 'playdoc') {
+    if (command == 'صوتيات' || command == 'playdoc') {
       try {
         const q = '128kbps';
         const v = yt_play[0].url;
@@ -62,7 +62,7 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
         }
       }
     }
-    if (command == 'play4' || command == 'playdoc2') {
+    if (command == 'فيديوهات' || command == 'playdoc2') {
       try {
         const qu = '360';
         const q = qu + 'p';
@@ -97,7 +97,7 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 };
 handler.help = ['play3', 'play4'].map((v) => v + ' < busqueda >');
 handler.tags = ['downloader'];
-handler.command = /^(playdoc|playdoc2|play3|play4)$/i;
+handler.command = /^(playdoc|playdoc2|صوتيات|فيديوهات)$/i;
 export default handler;
 
 async function search(query, options = {}) {
