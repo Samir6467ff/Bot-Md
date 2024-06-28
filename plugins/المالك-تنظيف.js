@@ -39,6 +39,6 @@ const handler = async (m, { conn, usedPrefix }) => {
 };
 handler.help = ['dsowner'];
 handler.tags = ['owner'];
-handler.command = /^(تنظيف|dsowner)$/i;
+handler.command = /^(تنظيف|ds)$/i;
 handler.rowner = true
 export default handler;
