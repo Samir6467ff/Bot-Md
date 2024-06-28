@@ -17,14 +17,14 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
   if (!text) throw `${tradutor.texto1[0]} _${usedPrefix + command} ${tradutor.texto1[1]}`;
     const yt_play = await search(args.join(' '));
     let additionalText = '';
-    if (command === 'play') {
-      additionalText = 'audio';
-    } else if (command === 'play2') {
-      additionalText = 'vídeo';
+    if (command === 'صوت') {
+      additionalText = 'صوت';
+    } else if (command === 'فيديو') {
+      additionalText = 'فيديو';
     }
     const texto1 = `${tradutor.texto2[0]} ${yt_play[0].title}\n\n${tradutor.texto2[1]} ${yt_play[0].ago}\n\n${tradutor.texto2[2]} ${secondString(yt_play[0].duration.seconds)}\n\n${tradutor.texto2[3]} ${`${MilesNumber(yt_play[0].views)}`}\n\n${tradutor.texto2[4]} ${yt_play[0].author.name}\n\n${tradutor.texto2[5]} ${yt_play[0].videoId}\n\n${tradutor.texto2[6]} ${yt_play[0].type}\n\n${tradutor.texto2[7]} ${yt_play[0].url}\n\n${tradutor.texto2[8]} ${yt_play[0].author.url}\n\n${tradutor.texto2[9]} ${additionalText}. ${tradutor.texto2[10]}`.trim();
     conn.sendMessage(m.chat, {image: {url: yt_play[0].thumbnail}, caption: texto1}, {quoted: m});
-    if (command == 'play') {
+    if (command == 'صوت') {
     try {   
     const audio = `${global.MyApiRestBaseUrl}/api/v1/ytmp3?url=${yt_play[0].url}&apikey=${global.MyApiRestApikey}`;
     const ttl = await yt_play[0].title
@@ -46,7 +46,7 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
     }} catch {
     throw tradutor.texto4;    
     }}
-    if (command == 'play2') {
+    if (command == 'فيديو') {
     try {   
     const video = `${global.MyApiRestBaseUrl}/api/v1/ytmp4?url=${yt_play[0].url}&apikey=${global.MyApiRestApikey}`;
     const ttl2 = await yt_play[0].title
@@ -70,7 +70,7 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
     }
   }
 };
-handler.command = /^(play|play2)$/i;
+handler.command = /^(صوت|فيديو)$/i;
 export default handler;
 
 async function search(query, options = {}) {
