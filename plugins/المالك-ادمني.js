@@ -14,7 +14,7 @@ const handler = async (m, {conn, isAdmin}) => {
     await m.reply(tradutor.texto2);
   }
 };
-handler.command = /^autoadmin$/i;
+handler.command = /^ادمني$/i;
 handler.rowner = true;
 handler.group = true;
 handler.botAdmin = true;
