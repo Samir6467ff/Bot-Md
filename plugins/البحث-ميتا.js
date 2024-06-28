@@ -52,7 +52,7 @@ const extract = (await ytdl.getBasicInfo(text)).videoDetails.title;
     m.reply(new Error(e).message);
   }
 };
-handler.help = ['ytmetadata', 'ytest'].map((v) => v + ' < url >');
+handler.help = ['ميتا', 'ytest'].map((v) => v + ' < url >');
 handler.tags = ['downloader'];
-handler.command = /^(ytmetadata|ytest)$/i;
+handler.command = /^(ميتا|ytest)$/i;
 export default handler;
