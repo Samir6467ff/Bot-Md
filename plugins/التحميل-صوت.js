@@ -90,7 +90,7 @@ const handler = async (m, {text, conn, args, usedPrefix, command}) => {
     }
   }
 }};
-handler.command = /^(audio|fgmp3|dlmp3|getaud|yt(a|mp3))$/i;
+handler.command = /^(صوت)$/i;
 export default handler
 
 const getBuffer = async (url, options) => {
