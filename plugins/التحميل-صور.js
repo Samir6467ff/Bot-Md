@@ -1,3 +1,41 @@
+import fs from 'fs';
+import { googleImage } from '@bochilteam/scraper';
+
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+  
+  if (!text) {
+    throw `*فين النص اللي هتبحث عنو ي حوب 🧞* \n> ${usedPrefix + command} ناروتو`; // Fixed text if query is missing
+  }
+
+  // Example content filtering (uncomment and adjust as needed)
+  // if (m.text.includes('gore') || m.text.includes('cp') || m.text.includes('porno')) {
+  //   return m.reply('Content not allowed.'); // Example response for prohibited content
+  // }
+
+  try {
+    const res = await googleImage(text);
+    const image = await res.getRandom();
+    const link = image;
+    conn.sendFile(m.chat, link, 'error.jpg', `> هنا هي الصورة التي وجدتها عن ${text}.\n> يمكنك مشاهدة الصورة في الرابط التالي: ${link}.\n>.تم البحث باستخدام Google Image.`, m);
+  } catch (error) {
+    console.error('Error fetching image:', error);
+    throw 'حدث خطأ أثناء جلب الصورة. يرجى المحاولة مرة أخرى لاحقًا 🧞.'; // Generic error message for image fetching issues
+  }
+};
+
+handler.help = ['image <query>', 'صوره <query>'];
+handler.tags = ['internet', 'tools'];
+handler.command = /^(صوره|image)$/i;
+
+export default handler;
+
+
+
+
+
+
+
+/*
 import {googleImage} from '@bochilteam/scraper';
 
 const handler = async (m, {conn, text, usedPrefix, command}) => {
@@ -18,3 +56,4 @@ handler.help = ['gimage <query>', 'imagen <query>'];
 handler.tags = ['internet', 'tools'];
 handler.command = /^(gimage|image|imagen)$/i;
 export default handler;
+*/
