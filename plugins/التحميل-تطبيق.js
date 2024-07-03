@@ -21,5 +21,5 @@ const handler = async (m, {conn, usedPrefix: prefix, command, text}) => {
     throw `${tradutor.texto4}`;
   }    
 };
-handler.command = /^(apkmod|modapk|dapk2|aptoide|aptoidedl)$/i;
+handler.command = /^(apks|تطبيق|ابك)$/i;
 export default handler;
