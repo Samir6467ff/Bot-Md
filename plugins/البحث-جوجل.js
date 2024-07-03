@@ -26,7 +26,7 @@ conn.sendFile(m.chat, ss, 'error.png', teks, m)
 } 
 handler.help = ['google', 'جوجل'].map((v) => v + ' <pencarian>');
 handler.tags = ['internet'];
-handler.command = /^جوحل?$/i;
+handler.command = /^جوجل?$/i;
 export default handler;
 
 /*import {googleIt} from '@bochilteam/scraper';
