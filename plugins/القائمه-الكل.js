@@ -35,7 +35,7 @@ const handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, i
     const doc = ['pdf', 'zip', 'vnd.openxmlformats-officedocument.presentationml.presentation', 'vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'vnd.openxmlformats-officedocument.wordprocessingml.document'];
     const document = doc[Math.floor(Math.random() * doc.length)];
     const str = `
-⋄━───═══⌬≼${tradutor.texto1[0]}≽⌬═══───━⋄
+⋄━──═⌬≼ 𝐒𝐇𝐀𝐖𝐀𝐙𝐀-𝐁𝐎𝐓 ≽⌬═──━⋄
 
 ╭╾━━━━━━━━━━━━━━━━━╼
 │──≼ ${tradutor.texto1[1]} ${taguser} ≽
@@ -62,8 +62,26 @@ const handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, i
  ╰┄╾━━━━━━━━━━━━━┄〢
 
 
-⋄━───═══⌬≼${tradutor.texto1[0]}≽⌬═══───━⋄
+⋄━─═⌬≼ 𝐒𝐇𝐀𝐖𝐀𝐙𝐀-𝐁𝐎𝐓 ≽⌬═─━⋄
 ${readMore}
+
+
+
+ ╭─────≼ قسم البحث والتحميل 🧞 ≽
+ │▢ ${usedPrefix}جوجل
+ │▢ ${usedPrefix}ميتا
+ │▢ ${usedPrefix}يوتيوب
+ │▢ ${usedPrefix}شغل
+ │▢ ${usedPrefix}اغنيه
+ │▢ ${usedPrefix}فيديو
+ │▢ ${usedPrefix}صوت
+ │▢ ${usedPrefix}انستا
+ │▢ ${usedPrefix}فيس
+ │▢ ${usedPrefix}تيك
+ ╰┄╾━━━━━━━━━━━━━┄〢
+
+
+
  
   ╭─────≼ ${tradutor.texto1[11]} ≽
   │▢ ${usedPrefix}terminosycondiciones
