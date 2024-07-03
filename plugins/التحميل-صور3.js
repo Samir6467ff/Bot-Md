@@ -7,7 +7,7 @@ let image = await res.getRandom()
 let link = image
 //conn.sendFile(m.chat, link, 'error.jpg', `🔎 *النتيجه ل:* ${text}\n🔗 *من* ${link}\n🌎 *محرك البحث:* جوجل`, m)}
 let captionn = `🔎 *الـبـحـث عـن:* ${text}\n🔗 *الـليـنـك* ${link}\n🌎 *مـحـرـك الـبـحـث:* Google`
-conn.sendButton(m.chat, captionn, author, link, [['صوره غيراها', `${usedPrefix + command} ${text}`],['الاوامر',`${usedPrefix + command} منيو`]], m)}
+conn.sendButton(m.chat, captionn, author, link, [['التـــالي', `${usedPrefix + command} ${text}`],['الاوامــر',`${usedPrefix}منيو`], m)}
 handler.help = ['صورة <query>']
 handler.tags = ['internet', 'tools']
 handler.command = /^(صورة)$/i
