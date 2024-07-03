@@ -17,13 +17,22 @@ global.owner = [
 global.suittag = ['201145624848'];
 global.prems = ['201145624848'];
 
-global.packname = 'Sticker';
-global.author = 'SHAWAZA - Bot';
-global.wm = 'SHAWAZA - Bot';
-global.titulowm = 'SHAWAZA - Bot';
-global.titulowm2 = `SHAWAZA - Bot`
-global.igfg = 'SHAWAZA - Bot';
-global.wait = '*[ ⏳ ] بيحمل اهو ...*';
+global.packname = '𝗦𝗔𝗬𝗘𝗗-𝗦𝗛𝗔𝗪𝗔𝗭𝗔';
+global.author = '𝐒𝐇𝐀𝐖𝐀𝐙𝐀-𝐁𝐎𝐓';
+global.wm = '𝐒𝐇𝐀𝐖𝐀𝐙𝐀-𝐁𝐎𝐓';
+global.titulowm = '𝐒𝐇𝐀𝐖𝐀𝐙𝐀-𝐁𝐎𝐓';
+global.titulowm2 = `𝐒𝐇𝐀𝐖𝐀𝐙𝐀-𝐁𝐎𝐓`
+global.igfg = '𝐒𝐇𝐀𝐖𝐀𝐙𝐀-𝐁𝐎𝐓';
+global.wait = '*「 ▓▓▓▓▓▒▒▒▒░░░ 」 صلي على النبي ي حوب 🧞 ...*';
+global.styel1 = '┌─ 〘 ';
+global.styel2 = ' 〙 ─ ⳹';
+global.styel3 = '│✑ 「 ';
+global.styel4 = ' 」';
+global.styel5 = '└┬ ✑ 「 ';
+global.styel6 = '└───────────────┈ ⳹';
+
+
+
 
 global.imagen1 = fs.readFileSync('./Menu2.jpg');
 global.imagen2 = fs.readFileSync('./src/nuevobot.jpg');
@@ -31,10 +40,10 @@ global.imagen3 = fs.readFileSync('./src/Pre Bot Publi.png');
 global.imagen4 = fs.readFileSync('./Menu.png');
 global.imagen5 = fs.readFileSync('./src/+18.jpg');
 global.imagen6 = fs.readFileSync('./Menu3.png');
-global.imagen7 = fs.readFileSync('./src/menu_pt.png');
-global.imagen8 = fs.readFileSync('./src/menu_fr.png')
-global.imagen9 = fs.readFileSync('./src/menu_en.png')
-global.imagen10 = fs.readFileSync('./src/menu_ru.png')
+global.imagen7 = fs.readFileSync('./Menu.png');
+global.imagen8 = fs.readFileSync('./Menu.png')
+global.imagen9 = fs.readFileSync('./Menu.png')
+global.imagen10 = fs.readFileSync('./Menu.png')
 
 global.mods = [];
 
@@ -47,14 +56,14 @@ global.mes = d.toLocaleDateString('ar', {month: 'long'});
 global.año = d.toLocaleDateString('ar', {year: 'numeric'});
 global.tiempo = d.toLocaleString('ar', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
 //* ****************************
-global.wm2 = `${dia} ${fecha}\nSHAWAZA - Bot`;
-global.gt = 'The Mystic - Bot';
-global.mysticbot = 'The Mystic - Bot';
+global.wm2 = `${dia} ${fecha}\n𝕊ℍ𝔸𝕎𝔸ℤ𝔸-𝔹𝕆𝕋`;
+global.gt = '𝐒𝐇𝐀𝐖𝐀𝐙𝐀-𝐁𝐎𝐓';
+global.mysticbot = '𝐒𝐇𝐀𝐖𝐀𝐙𝐀-𝐁𝐎𝐓';
 global.md = 'https://github.com/BrunoSobrino/TheMystic-Bot-MD';
 global.mysticbot = 'https://github.com/BrunoSobrino/TheMystic-Bot-MD';
-global.waitt = '*━────── •●• ──────━*\n> [ ⏳ ] جاري التحميل ...\n*━────── •●• ──────━*';
-global.waittt = '*━────── •●• ──────━*\n> [ ⏳ ] جاري التحميل ...\n*━────── •●• ──────━**';
-global.waitttt = '*[*━────── •●• ──────━*\n> [ ⏳ ] جاري التحميل ...\n*━────── •●• ──────━*';
+global.waitt = '*━────── •●• ──────━*\n> [ 🧞 ] جاري التحميل ...\n*━────── •●• ──────━*';
+global.waittt = '*━────── •●• ──────━*\n> [ 🧞 ] جاري التحميل ...\n*━────── •●• ──────━*';
+global.waitttt = '*[*━────── •●• ──────━*\n> [ 🧞 ] جاري التحميل ...\n*━────── •●• ──────━*';
 global.nomorown = '201145624848';
 global.pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf'];
 global.cmenut = '❖––––––『';
@@ -73,8 +82,8 @@ global.fin = '════◕◕ • •';
 global.ht1 = '*⋄━───═══⌬≼≽⌬═══───━⋄*';
 global.ht2 = '*━────── • • ──────━*';
 global.ht3 = '*━─────𖦹𖧷𖦹─────━*';
-global.botdate = `*[ 📅 ] Fecha:*  ${moment.tz('America/Mexico_City').format('DD/MM/YY')}`;
-global.bottime = `*[ ⏳ ] Hora:* ${moment.tz('America/Mexico_City').format('HH:mm:ss')}`;
+global.botdate = `*[ 📅 ] Fecha:*  ${moment.tz('Egypt/Cairo_City').format('DD/MM/YY')}`;
+global.bottime = `*[ ⏳ ] Hora:* ${moment.tz('Egypt/Cairo_City').format('HH:mm:ss')}`;
 global.fgif = {key: {participant: '0@s.whatsapp.net'}, message: {'videoMessage': {'title': wm, 'h': `Hmm`, 'seconds': '999999999', 'gifPlayback': 'true', 'caption': bottime, 'jpegThumbnail': fs.readFileSync('./Menu.png')}}};
 global.multiplier = 99;
 global.flaaa = [
