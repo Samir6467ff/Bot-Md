@@ -59,7 +59,7 @@ const handler = async (m, {conn, text, args, usedPrefix, command}) => {
     }
   }
 };
-handler.command = /^(tiktok|ttdl|tiktokdl|tiktoknowm|tt|ttnowm|tiktokaudio)$/i;
+handler.command = /^(tiktok|تيك)$/i;
 export default handler;
 
 async function tiktokdlF(url) {
