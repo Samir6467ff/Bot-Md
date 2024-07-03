@@ -29,7 +29,7 @@ handler.tags = ['internet'];
 handler.command = /^جوجل?$/i;
 export default handler;
 
-
+/*
 import {googleIt} from '@bochilteam/scraper';
 import axios from 'axios';
 const handler = async (m, {conn, command, args}) => {
@@ -67,3 +67,4 @@ let result = { status: 200, author: '@BrunoSobrino', result: data }
 resolve(result)})
 } else {
 reject({ status: 404, author: 'Ryzn', message: data.data })}}).catch(reject)})}
+*/
