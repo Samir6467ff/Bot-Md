@@ -7,7 +7,7 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
   const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
   const tradutor = _translate.plugins.downloader_igstory
 
-  if (!args[0]) throw `${tradutor.texto1}\n*${usedPrefix + command} luisitocomunica*`;
+  if (!args[0]) throw `*فين النص اللي هتبحث عنو ي حوب 🧞*\n> مثال : *${usedPrefix + command} ناروتو*`;
   await m.reply(global.wait);
   const res = await fetch(`https://api.lolhuman.xyz/api/igstory/${args[0]}?apikey=${lolkeysapi}`);
   const anu = await res.json();
@@ -30,5 +30,5 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
 };
 handler.help = ['igstory <username>'];
 handler.tags = ['downloader'];
-handler.command = ['igstory', 'ighistoria'];
+handler.command = ['igstory', 'انستا-ستوري'];
 export default handler;
