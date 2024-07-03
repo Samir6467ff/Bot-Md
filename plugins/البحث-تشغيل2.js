@@ -107,7 +107,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
     }    
 
     try {
-      if (command === 'ميوزك') {
+      if (command === 'play.1') {
         let apiUrls2 = [
           `https://api.cafirexos.com/api/v1/ytmp3?url=${data.resultado.url}`,
           `https://api.cafirexos.com/api/v2/ytmp3?url=${data.resultado.url}`,
@@ -133,7 +133,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
           enviando = false;
           throw `${tradutor.texto3}`;
         }
-      } else if (command === 'فيد') {
+      } else if (command === 'play.2') {
         let apiUrls22 = [
           `https://api.cafirexos.com/api/v1/ytmp4?url=${data.resultado.url}`,
           `https://api.cafirexos.com/api/v2/ytmp4?url=${data.resultado.url}`,            
@@ -182,7 +182,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
   }
 };
 
-handler.command = /^(ميوزك|فيد|تشغيل)$/i;
+handler.command = /^(تشغيل|play.1|play.2)$/i;
 export default handler;
 
 async function isValidYouTubeLink(link) {
