@@ -12,7 +12,7 @@ let handler = async (m, { conn, command, args, usedPrefix }) => {
 
   const fetch = (await import('node-fetch')).default;
   const text = args.join` `;
-  if (!text) return conn.reply(m.chat, `${tradutor.texto1}`, m);
+  if (!text) return conn.reply(m.chat, `*فين النص اللي هتبحث عنو ي حوب 🧞*`, m);
 const url = 'https://google.com/search?q=' + encodeURIComponent(text);
 google({'query': text}).then(res => {
 let teks = `*${tradutor.texto2} _${text}_*\n\n${url}\n\n`
@@ -29,12 +29,13 @@ handler.tags = ['internet'];
 handler.command = /^جوجل?$/i;
 export default handler;
 
-/*import {googleIt} from '@bochilteam/scraper';
+
+import {googleIt} from '@bochilteam/scraper';
 import axios from 'axios';
 const handler = async (m, {conn, command, args}) => {
   const fetch = (await import('node-fetch')).default;
   const text = args.join` `;
-  if (!text) return conn.reply(m.chat, '*[❗𝐈𝐍𝐅𝐎❗] 𝙸𝙽𝙶𝚁𝙴𝚂𝙴 𝙴𝙻 𝚃𝙴𝚇𝚃𝙾 𝙾 𝚃𝙴𝙼𝙰 𝚀𝚄𝙴 𝙳𝙴𝚂𝙴𝙴 𝙱𝚄𝚂𝙲𝙰𝚁*', m);
+  if (!text) return conn.reply(m.chat, '*فين النص اللي هتبحث عنو ي حوب 🧞*', m);
   const url = 'https://google.com/search?q=' + encodeURIComponent(text);
   const search = await googleIt(text);
   const msg = search.articles.map(({title, url, description}) => {
@@ -49,7 +50,7 @@ const handler = async (m, {conn, command, args}) => {
 };
 handler.help = ['google', 'googlef'].map((v) => v + ' <pencarian>');
 handler.tags = ['internet'];
-handler.command = /^googlef?$/i;
+handler.command = /^google|جوجل2?$/i;
 export default handler;
 
  let ss2 = await ssweb(url, 'desktop')
@@ -65,4 +66,4 @@ axios.get(base + '/' + data.data.link, { headers: { 'cookie': cookies.join('') }
 let result = { status: 200, author: '@BrunoSobrino', result: data }
 resolve(result)})
 } else {
-reject({ status: 404, author: 'Ryzn', message: data.data })}}).catch(reject)})}*/
+reject({ status: 404, author: 'Ryzn', message: data.data })}}).catch(reject)})}
