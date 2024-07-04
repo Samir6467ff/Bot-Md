@@ -22,7 +22,7 @@ const handler = async (m, {conn, text, participants, isOwner, isAdmin}) => {
     const isMedia = /image|video|sticker|audio/.test(mime);
     const more = String.fromCharCode(8206);
     const masss = more.repeat(850);
-    const htextos = `${text ? text : '*Hola :D*'}`;
+    const htextos = `${text ? text : '*صلى على النبي ي حوب 🧞*'}`;
     if ((isMedia && quoted.mtype === 'imageMessage') && htextos) {
       var mediax = await quoted.download?.();
       conn.sendMessage(m.chat, {image: mediax, mentions: users, caption: htextos, mentions: users}, {quoted: m});
@@ -40,7 +40,7 @@ const handler = async (m, {conn, text, participants, isOwner, isAdmin}) => {
     }
   }
 };
-handler.command = /^(hidetag|notificar|notify)$/i;
+handler.command = /^(مخفي)$/i;
 handler.group = true;
 handler.admin = true;
 export default handler;
