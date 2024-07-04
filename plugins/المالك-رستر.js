@@ -13,6 +13,6 @@ const handler = async (m, { conn, isROwner, text }) => {
 };
 handler.help = ['restart'];
 handler.tags = ['owner'];
-handler.command = ['restart', 'reiniciar'];
+handler.command = ['restart', 'رستر'];
 handler.rowner = true;
 export default handler;
