@@ -16,12 +16,12 @@ const handler = async (m, {conn, text, command, args, usedPrefix}) => {
       throw tradutor.texto2;
   }
 };
-handler.help = ['simi', 'bot'].map((v) => v + ' <teks>');
+handler.help = ['بوت', 'bot'].map((v) => v + ' <teks>');
 handler.tags = ['fun'];
-handler.command = /^((sim)?simi|bot|alexa|cortana)$/i;
+handler.command = /^(سمسمي|بوت|سمسم|بوتي)$/i;
 export default handler;
 
-async function simitalk(ask, apikeyyy = "iJ6FxuA9vxlvz5cKQCt3", language = "es") {
+async function simitalk(ask, apikeyyy = "iJ6FxuA9vxlvz5cKQCt3", language = "ar") {
     if (!ask) return { status: false, resultado: { msg: "Debes ingresar un texto para hablar con simsimi." }};
     try {
         const response1 = await axios.get(`https://delirios-api-delta.vercel.app/tools/simi?text=${encodeURIComponent(ask)}`);
