@@ -7,21 +7,11 @@ const handler = async (m, {conn, args}) => {
   const tradutor = _translate.plugins.gc_link
 
   const group = m.chat;
-  const link = 'https://chat.whatsapp.com/'+ await conn.groupInviteCode(group);
-  const code = await conn.groupInviteCode(group);
-
-const groupMetadata = await conn.groupGetInviteInfo(group);
-    const groupImage = await conn.getProfilePicture(groupMetadata.id);
-    const groupDescription = groupMetadata.desc;
-    const groupOwner = groupMetadata.owner;
-    const groupMembers = groupMetadata.participants.length;
-  
-    
-  conn.reply(m.chat,link , m, {
+  conn.reply(m.chat,'https://chat.whatsapp.com/'+ await conn.groupInviteCode(group) , m, {
     contextInfo: {externalAdReply: {mediaUrl: null, mediaType: 1, description: null,
       title: tradutor.texto1[0],
       body: '𝐒𝐇𝐀𝐖𝐀𝐙𝐀-𝐁𝐎𝐓',
-      previewType: 0, thumbnail: groupImage,
+      previewType: 0, thumbnail: fs.readFileSync('./Menu2.png'),
       sourceUrl: `https://whatsapp.com/channel/0029Vael6wMJP20ze3IXJk0z`}}});
 };
 handler.help = ['linkgroup'];
@@ -30,4 +20,4 @@ handler.command = /^link|رابط|لينك$/i;
 handler.group = true;
 handler.botAdmin = true;
 export default handler;
-//fs.readFileSync('./Menu2.png')
+//
