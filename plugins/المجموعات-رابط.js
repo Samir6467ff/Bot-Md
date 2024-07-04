@@ -7,16 +7,27 @@ const handler = async (m, {conn, args}) => {
   const tradutor = _translate.plugins.gc_link
 
   const group = m.chat;
-  conn.reply(m.chat, 'https://chat.whatsapp.com/' + await conn.groupInviteCode(group), m, {
+  const link = 'https://chat.whatsapp.com/'+ await conn.groupInviteCode(group);
+  const code = await conn.groupInviteCode(group);
+
+const groupMetadata = await conn.groupGetInviteInfo(code);
+    const groupImage = await conn.getProfilePicture(groupMetadata.id);
+    const groupDescription = groupMetadata.desc;
+    const groupOwner = groupMetadata.owner;
+    const groupMembers = groupMetadata.participants.length;
+  
+    
+  conn.reply(m.chat,link , m, {
     contextInfo: {externalAdReply: {mediaUrl: null, mediaType: 1, description: null,
       title: tradutor.texto1[0],
-      body: '𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝',
-      previewType: 0, thumbnail: fs.readFileSync('./Menu2.jpg'),
-      sourceUrl: `https://github.com/BrunoSobrino/TheMystic-Bot-MD`}}});
+      body: '𝐒𝐇𝐀𝐖𝐀𝐙𝐀-𝐁𝐎𝐓',
+      previewType: 0, thumbnail: groupImage,
+      sourceUrl: `https://whatsapp.com/channel/0029Vael6wMJP20ze3IXJk0z`}}});
 };
 handler.help = ['linkgroup'];
 handler.tags = ['group'];
-handler.command = /^link|رابط$/i;
+handler.command = /^link|رابط|لينك$/i;
 handler.group = true;
 handler.botAdmin = true;
 export default handler;
+//fs.readFileSync('./Menu2.png')
