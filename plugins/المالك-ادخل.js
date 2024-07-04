@@ -2,9 +2,7 @@ const linkRegex = /chat\.whatsapp\.com\/([0-9A-Za-z]{20,24})/i;
 let enviando = false;
 
 const handler = async (m, { conn, text, isMods, isOwner, isPrems, usedPrefix, command }) => {
-  if (enviando) return;
-  enviando = true;
-  m.reply('جاري طلب الانضمام 🧞‍♂️...');
+  
 
   try {
     const link = text;
