@@ -7,7 +7,7 @@ const handler = async (m, { conn, text }) => {
   const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
   const tradutor = _translate.plugins.owner_broadcastchats
 
-  s
+ 
   const delay = (time) => new Promise((res) => setTimeout(res, time));
   const chats = Object.entries(conn.chats).filter(([jid, chat]) => !jid.endsWith('@g.us') && chat.isChats).map((v) => v[0]);
   if (!text) throw tradutor.texto1;
@@ -33,7 +33,7 @@ const handler = async (m, { conn, text }) => {
 };
 handler.help = ['broadcastchats', 'bcchats'].map((v) => v + ' <teks>');
 handler.tags = ['owner'];
-handler.command = /^(broadcastchats?|bcc(hats?)?)$/i;
+handler.command = /^(بيسيشات|bcchats)$/i;
 handler.rowner = true;
 export default handler;
 
