@@ -15,6 +15,6 @@ const handler = async (m, {conn, participants, usedPrefix, command}) => {
   users[who].banned = true;
   m.reply(tradutor.texto2);
 };
-handler.command = /^banuser$/i;
+handler.command = /^بانيوسر$/i;
 handler.rowner = true;
 export default handler;
