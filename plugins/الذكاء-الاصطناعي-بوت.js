@@ -16,9 +16,9 @@ const handler = async (m, {conn, text, command, args, usedPrefix}) => {
       throw tradutor.texto2;
   }
 };
-handler.help = ['بوت', 'bot'].map((v) => v + ' <teks>');
+handler.help = ['بوت'].map((v) => v + ' <teks>');
 handler.tags = ['fun'];
-handler.command = /^(سمسمي|بوت|سمسم|بوتي)$/i;
+handler.command = /^(بوت|بوتي)$/i;
 export default handler;
 
 async function simitalk(ask, apikeyyy = "iJ6FxuA9vxlvz5cKQCt3", language = "ar") {
