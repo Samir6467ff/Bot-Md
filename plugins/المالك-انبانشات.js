@@ -10,6 +10,6 @@ const handler = async (m) => {
 };
 handler.help = ['unbanchat'];
 handler.tags = ['owner'];
-handler.command = /^unbanchat$/i;
+handler.command = /^انبانشات$/i;
 handler.rowner = true;
 export default handler;
