@@ -1,4 +1,4 @@
-.باتش-اضافه الرد-الصوتي-تست import fs from 'fs';
+import fs from 'fs';
 const handler = (m) => m;
 handler.all = async function(m) {
   const vn = './media/شويه حاجات.mp3';
