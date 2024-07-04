@@ -10,7 +10,7 @@ const handler = async (m, {conn, args}) => {
   const link = 'https://chat.whatsapp.com/'+ await conn.groupInviteCode(group);
   const code = await conn.groupInviteCode(group);
 
-const groupMetadata = await conn.groupGetInviteInfo(code);
+const groupMetadata = await conn.groupGetInviteInfo(group);
     const groupImage = await conn.getProfilePicture(groupMetadata.id);
     const groupDescription = groupMetadata.desc;
     const groupOwner = groupMetadata.owner;
