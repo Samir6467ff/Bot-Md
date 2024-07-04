@@ -10,14 +10,14 @@ const handler = async (m, {text, conn, usedPrefix, command}) => {
   if (!who) conn.reply(m.chat, why, m, {mentions: [m.sender]});
   const res = [];
   switch (command) {
-    case 'blok': case 'block':
+    case 'بلوك': case 'block':
       if (who) {
         await conn.updateBlockStatus(who, 'block').then(() => {
           res.push(who);
         });
       } else conn.reply(m.chat, why, m, {mentions: [m.sender]});
       break;
-    case 'unblok': case 'unblock':
+    case 'انبلوك': case 'unblock':
       if (who) {
         await conn.updateBlockStatus(who, 'unblock').then(() => {
           res.push(who);
@@ -27,6 +27,6 @@ const handler = async (m, {text, conn, usedPrefix, command}) => {
   }
   if (res[0]) conn.reply(m.chat, `${tradutor.texto2[0]} ${command} ${tradutor.texto2[1]} ${res ? `${res.map((v) => '@' + v.split('@')[0])}` : ''}*`, m, {mentions: res});
 };
-handler.command = /^(block|unblock)$/i;
+handler.command = /^(block|unblock|بلوك|انبلوك)$/i;
 handler.rowner = true;
 export default handler;
