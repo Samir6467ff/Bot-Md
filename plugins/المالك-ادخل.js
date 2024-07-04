@@ -17,11 +17,14 @@ const handler = async (m, { conn, text, isMods, isOwner, isPrems }) => {
     const groupOwner = groupMetadata.owner;
     const groupMembers = groupMetadata.participants.length;
 
+    let chatInfo = "شات خاص";
+    if (m.isGroup) {
+      const groupChatMetadata = await conn.groupMetadata(m.chat);
+      chatInfo = `مجموعة: ${groupChatMetadata.subject}`;
+    }
+
     if (isPrems || isMods || isOwner || m.fromMe) {
       const res = await conn.groupAcceptInvite(code);
-      if (!isOwner) {
-        await conn.groupAdd(m.chat, [m.sender]);
-      }
       await conn.sendMessage(m.chat, { text: "تم الانضمام إلى المجموعة بنجاح." }, { quoted: m });
       enviando = false;
     } else {
@@ -32,7 +35,7 @@ const handler = async (m, { conn, text, isMods, isOwner, isPrems }) => {
         await conn.sendMessage(
           entry + '@s.whatsapp.net',
           {
-            text: `طلب من @${m.sender.split('@')[0]} للانضمام إلى المجموعة:\n\n*—◉ رابط المجموعة:* ${link}\n*—◉ وصف المجموعة:* ${groupDescription}\n*—◉ المنشئ:* @${groupOwner.split('@')[0]}\n*—◉ عدد الأعضاء:* ${groupMembers}`,
+            text: `طلب من @${m.sender.split('@')[0]} للانضمام إلى المجموعة من ${chatInfo}:\n\n*—◉ رابط المجموعة:* ${link}\n*—◉ وصف المجموعة:* ${groupDescription}\n*—◉ المنشئ:* @${groupOwner.split('@')[0]}\n*—◉ عدد الأعضاء:* ${groupMembers}`,
             mentions: [m.sender, groupOwner],
             contextInfo: {
               forwardingScore: 9999999,
@@ -65,6 +68,7 @@ handler.tags = ['premium'];
 handler.command = /^join|ادخل$/i;
 handler.private = true;
 export default handler;
+
 
 
 
