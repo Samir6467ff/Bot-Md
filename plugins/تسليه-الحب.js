@@ -37,5 +37,5 @@ loading()
 };
 handler.help = ['love'];
 handler.tags = ['fun'];
-handler.command = /^(love|amor)$/i;
+handler.command = /^(love|الحب)$/i;
 export default handler;
