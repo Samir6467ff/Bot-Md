@@ -14,6 +14,9 @@ global.owner = [
   ['201145624848', 'SAYED-SHAWAZA', true]
 ];
 
+global.ownername = '𝚂𝙰𝚈𝙴𝙳-𝚂𝙷𝙰𝚆𝙰𝚉𝙰';
+global.ownernumber = '201145624848';
+
 global.suittag = ['201145624848'];
 global.prems = ['201145624848'];
 
@@ -30,11 +33,6 @@ global.styel3 = '│✑ 「 ';
 global.styel4 = ' 」';
 global.styel5 = '└┬ ✑ 「 ';
 global.styel6 = '└───────────────┈ ⳹';
-
-
-
-global.email: 'sayeddaana221166@gmail.com';
-global.password: '24/4/2004';
 
 
 
