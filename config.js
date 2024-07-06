@@ -32,6 +32,11 @@ global.styel5 = '└┬ ✑ 「 ';
 global.styel6 = '└───────────────┈ ⳹';
 
 
+module.exports = {
+  email: 'sayeddaana221166@gmail.com',
+  password: '24/4/2004'
+};
+
 
 
 global.imagen1 = fs.readFileSync('./Menu2.png');
