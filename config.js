@@ -32,10 +32,9 @@ global.styel5 = '└┬ ✑ 「 ';
 global.styel6 = '└───────────────┈ ⳹';
 
 
-module.exports = {
-  email: 'sayeddaana221166@gmail.com',
-  password: '24/4/2004'
-};
+
+global.email: 'sayeddaana221166@gmail.com';
+global.password: '24/4/2004';
 
 
 
