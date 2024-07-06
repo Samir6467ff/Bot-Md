@@ -1,15 +1,8 @@
 const nodemailer = require('nodemailer'); // استيراد مكتبة nodemailer
-const { email, password } = require('./config'); // استيراد معلومات البريد من ملف config.js
 
-// دالة للرد على الرسائل
-function reply(message) {
-  console.log(message); // يمكنك استبدال هذا بتوجيه الرسالة إلى المستخدم
-}
+handler.exec = async (m, { conn, text }) => {
 
-handler.command = /^(بريد)$/i;
-handler.exec = async (m, { conn, isOwner, usedPrefix, command, text }) => {
-  // وظيفة معالجة أمر "بريد"
-  if (command === 'بريد') {
+  
     if (!text) return reply('**أدخل بريد البريد المرسل إليه وموضوع الرسالة ونص الرسالة.**');
     const [to, subject, message] = text.split('|');
 
@@ -24,8 +17,10 @@ handler.exec = async (m, { conn, isOwner, usedPrefix, command, text }) => {
       reply('**حدث خطأ أثناء إرسال البريد الإلكتروني.**');
       console.error(error);
     }
-  }
+  
 };
+
+handler.command = /^(بريد)$/i;
 
 // وظيفة إرسال البريد الإلكتروني
 async function sendEmail(to, subject, message) {
@@ -39,6 +34,7 @@ async function sendEmail(to, subject, message) {
       pass: password // استخدام كلمة المرور من ملف config.js
     }
   });
+  
 
   const mailOptions = {
     from: email, // استخدام البريد الإلكتروني من ملف config.js
@@ -58,3 +54,9 @@ async function sendEmail(to, subject, message) {
     });
   });
 }
+
+function reply(message) {
+  console.log(message); // يمكنك استبدال هذا بتوجيه الرسالة إلى المستخدم
+  m.reply(message);
+}
+
