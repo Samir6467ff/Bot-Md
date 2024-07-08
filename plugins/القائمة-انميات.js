@@ -25,15 +25,7 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
     const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
     const doc = ['pdf', 'zip', 'vnd.openxmlformats-officedocument.presentationml.presentation', 'vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'vnd.openxmlformats-officedocument.wordprocessingml.document'];
     const document = doc[Math.floor(Math.random() * doc.length)];
-    const str = `╭═══〘 ✯✯✯✯✯✯✯✯✯ 〙══╮
-║    ◉— *𝐓𝐡𝐞 𝐌𝐲𝐬𝐭𝐢𝐜 - 𝐁𝐨𝐭* —◉
-║≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡║
-║➤ ${tradutor.texto1[1]}, ${taguser}*
-╰═══╡✯✯✯✯✯✯✯✯✯╞═══╯
-
-┏━━━━━━━━━━━━━━━━┓
-┃ *< ${tradutor.texto1[0]} />*
-┃≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡┃
+    const str = `╭─────≼ ${tradutor.texto1[0]} ≽
 ┣ ඬ⃟ 🧿 _${usedPrefix}lolivid_
 ┣ ඬ⃟ 🧿 _${usedPrefix}loli_
 ┣ ඬ⃟ 🧿 _${usedPrefix}ppcouple_
@@ -74,7 +66,7 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
 ┣ ඬ⃟ 🧿 _${usedPrefix}sasuke_
 ┣ ඬ⃟ 🧿 _${usedPrefix}sakura_
 ┣ ඬ⃟ 🧿 _${usedPrefix}cosplay_
-┗━━━━━━━━━━━━━━━━┛`.trim();
+╰┄┄┄┄┄┄┄┄┄┄┄┄┄〢`.trim();
     if (m.isGroup) {
       // await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, { type: 'audioMessage', ptt: true})
       const fkontak2 = {'key': {'participants': '0@s.whatsapp.net', 'remoteJid': 'status@broadcast', 'fromMe': false, 'id': 'Halo'}, 'message': {'contactMessage': {'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}, 'participant': '0@s.whatsapp.net'};
@@ -88,7 +80,7 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
     conn.reply(m.chat, tradutor.texto1[3], m);
   }
 };
-handler.command = /^(animes|menuanimes)$/i;
+handler.command = /^(انميات|ق5)$/i;
 handler.exp = 50;
 handler.fail = null;
 export default handler;
