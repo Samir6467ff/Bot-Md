@@ -25,9 +25,7 @@ if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${tradutor.texto1[0]} 
     const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
     const doc = ['pdf', 'zip', 'vnd.openxmlformats-officedocument.presentationml.presentation', 'vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'vnd.openxmlformats-officedocument.wordprocessingml.document'];
     const document = doc[Math.floor(Math.random() * doc.length)];
-    const str = `╭───━⋄══〘 ${tradutor.texto1[1]} ${taguser}* 〙══⋄━───╮
-
-╭─────≼ ${tradutor.texto1[2]} ≽
+    const str = `╭─────≼ ${tradutor.texto1[2]} ≽
 ┣ ඬ⃟ 🔞 _${usedPrefix}pack_
 ┣ ඬ⃟ 🔞 _${usedPrefix}pack2_
 ┣ ඬ⃟ 🔞 _${usedPrefix}pack3_
@@ -60,10 +58,7 @@ if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${tradutor.texto1[0]} 
 ┣ ඬ⃟ 🔞 _${usedPrefix}nsfwglass_
 ┣ ඬ⃟ 🔞 _${usedPrefix}hentaipdf *<texto>*_
 ┣ ඬ⃟ 🔞 _${usedPrefix}hentaisearch *<texto>*_
-╰┄┄┄┄┄┄┄┄┄┄┄┄┄〢
-
-╰───━⋄══〘 ${tradutor.texto1[1]} ${taguser}* 〙══⋄━───╯
-`.trim();
+╰┄┄┄┄┄┄┄┄┄┄┄┄┄〢`.trim();
     if (m.isGroup) {
       await conn.sendMessage(m.chat, {image: pp, caption: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net')}, {quoted: m});
       //await conn.sendFile(m.chat, vn, 'La biblia.mp3', null, m, true, {type: 'audioMessage', ptt: true});
@@ -76,7 +71,7 @@ if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `${tradutor.texto1[0]} 
     conn.reply(m.chat, tradutor.texto1[3], m);
   }
 };
-handler.command = /^(اباحى)$/i;
+handler.command = /^(اباحى|ق10)$/i;
 handler.exp = 50;
 handler.fail = null;
 handler.rowner = true;
