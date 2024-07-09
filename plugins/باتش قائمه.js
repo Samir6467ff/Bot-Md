@@ -27,8 +27,8 @@ let handler = async (m, { isROwner }) => {
         let files = await listFiles();
         
         // إرسال قائمة أسماء الملفات كرسالة
-        let fileListMessage = `قائمة الملفات في الدليل:\n\n`;
-        fileListMessage += files.join('\n');
+        let fileListMessage = `قائمة الملفات في الدليل:\n\n 🧞 `;
+        fileListMessage += files.join('\n 🧞 ');
 
         m.reply(fileListMessage);
     } catch (e) {
@@ -39,7 +39,7 @@ let handler = async (m, { isROwner }) => {
 
 handler.help = ['listplugins'];
 handler.tags = ['owner'];
-handler.command = /^(listplugins|lp|باتش-الكل)$/i;
+handler.command = /^(gpl|باتش-الكل)$/i;
 handler.rowner = true;
 
 export default handler;
