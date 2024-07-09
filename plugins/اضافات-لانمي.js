@@ -43,7 +43,7 @@ const handler = async (m, {conn, text, args, usedPrefix, command}) => {
 };
 handler.help = ['toanime'];
 handler.tags = ['tools'];
-handler.command = /^(jadianime|toanime)$/i;
+handler.command = /^(لانمي|toanime)$/i;
 export default handler;
 
 async function jadianime(image) {
