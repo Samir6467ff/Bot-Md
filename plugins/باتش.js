@@ -33,6 +33,6 @@ const handler = async (m, {conn, isROwner, usedPrefix, command, text}) => {
 };
 handler.help = ['getplugin'].map((v) => v + ' *<nombre>*');
 handler.tags = ['owner'];
-handler.command = /^(getplugin|gp)$/i;
+handler.command = /^(باتش|gp)$/i;
 handler.rowner = true;
 export default handler;
