@@ -16,5 +16,5 @@ const handler = async (m, {conn, usedPrefix, command}) => {
   const media = await q.download();
   conn.sendMessage(m.chat, {video: media, gifPlayback: true, caption: `*${tradutor.texto3}*`}, {quoted: m});
 };
-handler.command = ['togifaud'];
+handler.command = ['togifaud','لجيف'];
 export default handler;
