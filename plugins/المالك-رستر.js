@@ -1,14 +1,10 @@
 
 
 const handler = async (m, { conn, isROwner, text }) => {
-  const datas = global
-  const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
-  const tradutor = _translate.plugins.owner_restart
-
-  if (!process.send) throw tradutor.texto1;
+ 
+  if (!process.send) throw `*زعلان منك ومش هرستر 🧞*`;
   // conn.readMessages([m.key])
-  await m.reply(tradutor.texto2);
+  await m.reply(`*اهون عليك تهون عليا هترستر وارجع بعد شويه 🧞*`);
   process.send('reset');
 };
 handler.help = ['restart'];
