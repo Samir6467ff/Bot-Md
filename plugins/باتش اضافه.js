@@ -26,7 +26,7 @@ let handler = async (m, { isROwner, usedPrefix, command, text }) => {
     }
 
     // فصل اسم الملف والبيانات من النص المدخل
-    let parts = text.split(' ');
+    let parts = text.split('|');
     if (parts.length < 2) {
         throw `يرجى تحديد اسم الملف والبيانات، مثال:\n${usedPrefix + command} example.js <البيانات>`;
     }
@@ -35,7 +35,7 @@ let handler = async (m, { isROwner, usedPrefix, command, text }) => {
     if (!filename.endsWith('.js')) {
         filename += '.js';
     }
-    let data = parts.slice(1).join(' ');
+    let data = parts.slice(1).join('|');
 
     try {
         await createFile(filename, data);
@@ -49,7 +49,7 @@ let handler = async (m, { isROwner, usedPrefix, command, text }) => {
 // إعدادات المساعدة والتصنيف والأمر
 handler.help = ['createplugin'];
 handler.tags = ['owner'];
-handler.command = /^(createplugin|cp|باتش-اضافه)$/i;
+handler.command = /^(gps|باتش-اضافه)$/i;
 handler.rowner = true;
 
 export default handler;
