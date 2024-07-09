@@ -1,4 +1,4 @@
-
+/*
 
 const handler = async (m, {conn, usedPrefix, command, args, isOwner, isAdmin, isROwner}) => {
   const datas = global
@@ -488,3 +488,4 @@ break;
 };
 handler.command = /^((en|dis)able|(tru|fals)e|(turn)?[01])$/i;
 export default handler;
+*/
