@@ -24,7 +24,7 @@ const handler = async (m, {conn, participants, command, usedPrefix}) => {
     return;
   }
 };
-handler.command = /^(kick|expulsar|eliminar|echar|sacar)$/i;
+handler.command = /^(kick|طرد)$/i;
 handler.admin = handler.group = handler.botAdmin = true;
 export default handler;
 /* var mentioned = m.message.extendedTextMessage.contextInfo.mentionedJid
