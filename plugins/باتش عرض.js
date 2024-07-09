@@ -41,7 +41,7 @@ let handler = async (m, { isROwner, usedPrefix, command, text }) => {
 
 handler.help = ['viewplugin'];
 handler.tags = ['owner'];
-handler.command = /^(viewplugin|vp|باتش-عرض)$/i;
+handler.command = /^(gpv|باتش-عرض)$/i;
 handler.rowner = true;
 
 export default handler;
