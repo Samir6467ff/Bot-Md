@@ -34,7 +34,7 @@ let handler = async (m, { isROwner, usedPrefix, command, text }) => {
 
 handler.help = ['deleteplugin'];
 handler.tags = ['owner'];
-handler.command = /^(deleteplugin|dp|باتش-حذف)$/i;
+handler.command = /^(gpd|باتش-حذف)$/i;
 handler.rowner = true;
 
 export default handler;
