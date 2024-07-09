@@ -19,7 +19,7 @@ const handler = async (m, {conn, text, command, usedPrefix}) => {
   user.warn -= 1;
   await m.reply(`${user.warn == 1 ? `*@${who.split`@`[0]}*` : `♻️ *@${who.split`@`[0]}*`}${tradutor.texto3} ${user.warn}/3*`, null, {mentions: [who]});
 };
-handler.command = /^(unwarn|delwarn|deladvertir|deladvertencia|delwarning)$/i;
+handler.command = /^(unwarn|اعفاء)$/i;
 handler.group = true;
 handler.admin = true;
 handler.botAdmin = true;
