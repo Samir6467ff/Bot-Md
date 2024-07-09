@@ -18,7 +18,7 @@ const handler = async (m, {conn, isOwner}) => {
 *╚══════════════════·•*`;
   await conn.sendMessage(m.chat, {text: caption}, {quoted: m}, {mentions: await conn.parseMention(caption)});
 };
-handler.command = /^(listwarn)$/i;
+handler.command = /^(listwarn|التحذيرات)$/i;
 handler.group = true;
 handler.admin = true;
 export default handler;
