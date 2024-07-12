@@ -20,7 +20,6 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
   try {
     res = googleTTS.getAudioUrl(text, { lang: lang || 'ar', slow: false, host: 'https://translate.google.com' });
   } catch (e) {
-    m.reply(e + '');
     text = args.join(' ');
     if (!text) throw `*فين النص اللي عاوز تحولوا لصوت ي حوب 🧞*`;
     res = await tts(text, defaultLang);
