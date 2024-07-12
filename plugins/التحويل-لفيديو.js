@@ -5,14 +5,10 @@ import {ffmpeg} from '../lib/converter.js';
 
 
 const handler = async (m, {conn, usedPrefix, command}) => {
-  const datas = global
-  const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
-  const tradutor = _translate.plugins.convertidor_tovideo
 
-  if (!m.quoted) throw `*${tradutor.texto1} ${usedPrefix + command}*`;
+  if (!m.quoted) throw `*فين الاستيكر اللي عاوز تحولو ي حوب 🧞‍♂️*`;
   const mime = m.quoted.mimetype || '';
-  if (!/webp/.test(mime)) throw `*${tradutor.texto2} ${usedPrefix + command}*`;
+  if (!/webp/.test(mime)) throw `*دا مش استيكر ي حوب 🧞‍♂️*`;
   const media = await m.quoted.download();
   let out = Buffer.alloc(0);
   if (/webp/.test(mime)) {
@@ -26,9 +22,9 @@ const handler = async (m, {conn, usedPrefix, command}) => {
       '-shortest',
     ], 'mp3', 'mp4');
   }
-  await conn.sendFile(m.chat, out, 'error.mp4', '*DONE*', m, 0, {thumbnail: out});
+  await conn.sendFile(m.chat, out, 'error.mp4', '*شبيك لبيك طلبك بين ايديك 🧞*', m, 0, {thumbnail: out});
 };
 handler.help = ['tovideo'];
 handler.tags = ['sticker'];
-handler.command = ['tovideo', 'tomp4', 'mp4', 'togif'];
+handler.command = ['tovideo', 'لفيديو'];
 export default handler;
