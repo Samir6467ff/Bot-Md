@@ -1,16 +1,3 @@
-/* -------------------------------------------------------*/
-/* [❗]                      [❗]                      [❗] */
-/*                                                       */
-/*       |- [ ⚠ ] - CREDITOS DEL CODIGO - [ ⚠ ] -|      */
-/*     —◉ DESAROLLADO POR OTOSAKA:                       */
-/*     ◉ Otosaka (https://github.com/6otosaka9)          */
-/*     ◉ Número: wa.me/51993966345                       */
-/*                                                       */
-/*     —◉ FT:                                            */
-/*     ◉ BrunoSobrino (https://github.com/BrunoSobrino)  */
-/*                                                       */
-/* [❗]                      [❗]                      [❗] */
-/* -------------------------------------------------------*/
 
 import fetch from 'node-fetch';
 import axios from 'axios';
@@ -67,5 +54,5 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
    }
  }
 };
-handler.command = /^(openai|chatgpt|ia|robot|openai2|chatgpt2|ia2|robot2|Mystic|MysticBot)$/i;
+handler.command = /^(جيبيتي|chatgpt)$/i;
 export default handler;
