@@ -1,41 +1,88 @@
+import fetch from 'node-fetch'
+import fs from 'fs'
+import jimp from 'jimp'
+let handler = async (m, { conn, usedPrefix, text, args, command }) => {
+let wm = '◄⏤͟͟͞𝗦𝗔𝗬𝗘𝗗-𝗦𝗛𝗔𝗪𝗔𝗭𝗔'
 
 
-
-const handler = async (m, {conn, usedPrefix}) => {
-  const datas = global
-  const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
-  const tradutor = _translate.plugins.info_creador
-
-  const doc = ['pdf', 'zip', 'vnd.openxmlformats-officedocument.presentationml.presentation', 'vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'vnd.openxmlformats-officedocument.wordprocessingml.document'];
-  const document = doc[Math.floor(Math.random() * doc.length)];
-  const text = `${tradutor.texto1[0]}`.trim();
-  const buttonMessage= {
-    'document': {url: `https://github.com/BrunoSobrino/TheMystic-Bot-MD`},
-    'mimetype': `application/${document}`,
-    'fileName': `${tradutor.texto2[0]}`,
-    'fileLength': 99999999999999,
-    'pageCount': 200,
-    'contextInfo': {
-      'forwardingScore': 200,
-      'isForwarded': true,
-      'externalAdReply': {
-        'mediaUrl': 'https://github.com/BrunoSobrino/TheMystic-Bot-MD',
-        'mediaType': 2,
-        'previewType': 'pdf',
-        'title': tradutor.texto2[1],
-        'body': wm,
-        'thumbnail': imagen1,
-        'sourceUrl': 'https://www.youtube.com/channel/UCSTDMKjbm-EmEovkygX-lCA'}},
-    'caption': text,
-    'footer': wm,
-    // 'buttons':[
-    // {buttonId: `${usedPrefix}menu`, buttonText: {displayText: '𝙼𝙴𝙽𝚄'}, type: 1},
-    // {buttonId: `${usedPrefix}donar`, buttonText: {displayText: '𝙳𝙾𝙽𝙰𝚁'}, type: 1}],
-    'headerType': 6};
-  conn.sendMessage(m.chat, buttonMessage, {quoted: m});
+let fakecontact = { 'key': { 'participants': '0@s.whatsapp.net', 'remoteJid': 'status@broadcast', 'fromMe': false, 'id': '𝐒𝐇𝐀𝐖𝐀𝐙𝐀-𝐁𝐎𝐓' }, 'message': { 'contactMessage': { 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` } }, 'participant': '0@s.whatsapp.net' };
+let fakegif = {key: {participant: `0@s.whatsapp.net`, ...('6289643739077-1613049930@g.us' ? {remoteJid: '6289643739077-1613049930@g.us'} : {})}, message: {'videoMessage': {'title': '𝕊ℍ𝔸𝕎𝔸ℤ𝔸-𝔹𝕆𝕋', 'h': `Hmm`, 'seconds': '99999', 'gifPlayback': 'true', 'caption': '𝐒𝐇𝐀𝐖𝐀𝐙𝐀-𝐁𝐎𝐓', 'jpegThumbnail': false}}};
+let mkey = {'key': {'participants': '0@s.whatsapp.net', 'remoteJid': '6289643739077-1613049930@g.us', 'fromMe': false, 'id': 'Halo'}, 'message': {'contactMessage': {'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}, 'participant': '0@s.whatsapp.net'};
+let fakelocation = {
+  key: {
+    fromMe: false,
+    participant: '0@s.whatsapp.net',
+    remoteJid: 'status@broadcast'
+  },
+  message: {
+    locationMessage: {
+      degreesLatitude: 37.7749,
+      degreesLongitude: -122.4194,
+      name: 'Palestine',
+      address: 'San Francisco, CA, USA',
+      url: 'https://maps.google.com/?q=37.7749,-122.4194'
+    }
+  }
 };
-handler.help = ['owner', 'المطور'];
-handler.tags = ['info'];
-handler.command = /^(owner|المطور)$/i;
-export default handler;
+let faketext = {
+  key: {
+    fromMe: false,
+    participant: '0@s.whatsapp.net',
+    remoteJid: 'status@broadcast'
+  },
+  message: {
+    conversation: 'فلسطين حرة مهما كان الثمن ❤️🧞'
+  }
+};
+
+let fake = [fakegif, fakecontact, mkey, fakelocation, faketext]
+let vn = fake[Math.floor(Math.random() * fake.length)];
+
+let poster = ['https://telegra.ph/file/ba984d78fa802662438ee.jpg', 'https://telegra.ph/file/0e22282b399e105776618.jpg', 'https://telegra.ph/file/5e6456d22a8264b08a2bc.jpg', 'https://telegra.ph/file/996f53288a1e2f4f35812.jpg']
+let vn2 = poster[Math.floor(Math.random() * poster.length)];
+
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let ftroli = { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { itemCount: 2023, status: 1, thumbnail: 'https://i.imgur.com/RbaRjrb.jpeg', surface: 1, message: wm, orderTitle: wm, sellerJid: '0@s.whatsapp.net' } } }
+let bjir = 'https://i.imgur.com/RbaRjrb.jpeg'
+let name = await conn.getName(who)
+
+let delay = time => new Promise(res => setTimeout(res, time))
+await conn.sendContact(m.chat, [[`201145624848` + `@s.whatsapp.net`, wm]], vn, {
+ contextInfo: { 
+ forwardingScore: 2023,
+isForwarded: false, 
+ externalAdReply: {  
+ title: '𝑇𝛨𝛯 𝐿𝛩𝛻𝛯𝐿𝑌 𝛩𝑊𝛮𝛯𝑅 𝛩𝐹', 
+ body: '𝕊ℍ𝔸𝕎𝔸ℤ𝔸-𝔹𝕆𝕋', 
+ sourceUrl: 'https://whatsapp.com/channel/0029Vael6wMJP20ze3IXJk0z',
+ thumbnail: vn2,
+ thumbnailUrl: vn2, 
+ mediaType: 1,
+ showAdAttribution: true, 
+ renderLargerThumbnail: true, 
+ mentionedJid: [m.sender]
+	}}}, { quoted: vn});
+
+}
+handler.help = ['owner', 'creator']
+handler.tags = ['info']
+handler.command = /^(owner|مطور|المطور)$/i
+
+export default handler
+
+
+async function getBuffer(url) {
+	return new Promise(async (resolve, reject) => {
+		let buffer;
+		await jimp
+			.read(url)
+			.then((image) => {
+				image.getBuffer(image._originalMime, function (err, res) {
+					buffer = res;
+				});
+			})
+			.catch(reject);
+		if (!Buffer.isBuffer(buffer)) reject(false);
+		resolve(buffer);
+	});
+}
