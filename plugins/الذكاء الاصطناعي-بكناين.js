@@ -2,55 +2,84 @@ import fetch from 'node-fetch';
 import fs from 'fs';
 import uploader from '../lib/uploadImage.js';
 
-const handler = async (m, {conn, text, command}) => {
+const handler = async (m, {conn, text, usedPrefix, command}) => {
   const datas = global;
-  const idioma = datas.db.data.users[m.sender].language;
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`));
-  const tradutor = _translate.BK9.BK9;
+  const language = datas.db.data.users[m.sender].language;
+  const translation = JSON.parse(fs.readFileSync(`./language/${language}.json`));
+  const messages = translation.BK9.BK9;
+
+  let fakecontact = { 
+    'key': { 
+      'participants': '0@s.whatsapp.net', 
+      'remoteJid': 'status@broadcast', 
+      'fromMe': false, 
+      'id': '𝐒𝐇𝐀𝐖𝐀𝐙𝐀-𝐁𝐎𝐓' 
+    }, 
+    'message': { 
+      'contactMessage': { 
+        'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` 
+      } 
+    }, 
+    'participant': '0@s.whatsapp.net' 
+  };
 
   if (command === 'تخيل') {
-    if (!text) throw `${tradutor.bk9dalletext}`;
+    if (!text) throw 'الرجاء إدخال النص للتخيل.';
 
-    await conn.sendMessage(m.chat, {text: tradutor.bk9dallewait}, {quoted: m});
+    await conn.sendMessage(m.chat, {text: 'الرجاء الانتظار، يتم الآن معالجة طلبك...'}, {quoted: m});
 
     try {
-      const BK9 = `https://api.bk9.site/ai/photoleap?q=${encodeURIComponent(text)}`;
-      const response = await fetch(BK9);
+      const response = await fetch(`https://api.bk9.site/ai/photoleap?q=${encodeURIComponent(text)}`);
       const result = await response.json();
 
       if (result.status) {
-        await conn.sendMessage(m.chat, {image: {url: result.BK9}}, {quoted: m});
+        await conn.sendButton(
+          m.chat,
+          `نتيجة التخيل عن : ${text}`, 
+          '𝐒𝐇𝐀𝐖𝐀𝐙𝐀-𝐁𝐎𝐓',
+          result.BK9,
+          [
+            ['صورة آخري 🧞', `${usedPrefix + command} ${text}`]
+          ],
+          { quoted: fakecontact }
+        );
       }
     } catch (error) {
-      throw `${tradutor.bk9dalleerr}`;
+      throw 'حدث خطأ أثناء معالجة طلب التخيل.';
     }
   } else if (command === 'بكناين') {
-    if (!text) throw `${tradutor.bk9text}`;
+    if (!text) throw 'الرجاء إدخال النص.';
 
     try {
       conn.sendPresenceUpdate('composing', m.chat);
-      const BK9api = `https://api.bk9.site/ai/gpt4?q=${encodeURIComponent(text)}`;
-      const BK99 = await fetch(BK9api);
-      const BK8 = await BK99.json();
-      if (BK8.status && BK8.BK9) {
-        const respuestaAPI = BK8.BK9;
-        conn.reply(m.chat, respuestaAPI, m);
+      const response = await fetch(`https://api.bk9.site/ai/gpt4?q=${encodeURIComponent(text)}`);
+      const result = await response.json();
+
+      if (result.status && result.BK9) {
+        conn.reply(m.chat, result.BK9, m);
       } else {
-        throw `${tradutor.bk9err}`;
+        throw 'حدث خطأ أثناء معالجة طلب بكناين.';
       }
     } catch (error) {
-      throw `${tradutor.bk9err}`;
+      throw 'حدث خطأ أثناء معالجة طلب بكناين.';
     }
   } else if (command === 'شوف') {
-    let BK7 = m.quoted ? m.quoted : m;
-    let BK8 = (BK7.msg || BK7).mimetype || BK7.mediaType || '';
-    if (/image/g.test(BK8) && !/webp/g.test(BK8)) {
-      let BK0 = await BK7.download();
-      let BK9img = await uploader(BK0);
-      let BK9api = await (await fetch(`https://api.bk9.site/ai/geminiimg?url=${BK9img}&q=${text}`)).json();
-      conn.sendMessage(m.chat, { text: BK9api.BK9 }, { quoted: m });
+    let quotedMessage = m.quoted ? m.quoted : m;
+    let mediaType = (quotedMessage.msg || quotedMessage).mimetype || quotedMessage.mediaType || '';
+
+    if (/image/g.test(mediaType) && !/webp/g.test(mediaType)) {
+      try {
+        let imageBuffer = await quotedMessage.download();
+        let uploadedImageUrl = await uploader(imageBuffer);
+        let response = await fetch(`https://api.bk9.site/ai/geminiimg?url=${uploadedImageUrl}&q=${text}`);
+        let result = await response.json();
+
+        conn.sendMessage(m.chat, { text: result.BK9 }, { quoted: m });
+      } catch (error) {
+        throw 'حدث خطأ أثناء معالجة الصورة.';
+      }
     } else {
-      throw `${tradutor.bk9imgtext}`;
+      throw 'الرجاء إرسال صورة بصيغة مدعومة.';
     }
   }
 };
