@@ -11,36 +11,8 @@ global.botnumber = ""
 global.confirmCode = ""
 
 global.owner = [
-<<<<<<< HEAD
+
   ['201145624848', 'SAYED_SHAWAZA', true]
-=======
-  ['5219992095479', '👑 Mystic - Creador 👑', true],
-  ['51940617554', '💫 Mystic - Collaborator 2 💫', true],
-  ['51996089079', '💫 Mystic - Collaborator 3 💫', true],
-  ['5218442286089', '💫 Mystic - Collaborator 4 💫', true],
-  ['50246028932', '💫 Mystic - Collaborator 5 💫', true],
-  ['5212412377467', '💫 Mystic - Collaborator 6 💫', true],
-  ['5215517489568', '💫 Mystic - Rey Endymion 💫', false],
-  ['59895555511', '💫 Mystic - Collaborator 8 💫', true],
-  ['59175655964', '💫 Mystic - By Alba070503 💫', true],
-  ['393518398856','💫 Mystic - Tester Fabri115💫', true],
-  ['593968585283'],
-  ['5492266466080'],
-  ['5218442114446'],
-  ['59894808483'],
-  ['593980586516'], 
-  ['595975740803'],  
-  ['5492266613038'],
-  ['50497150165'],
-  ['51906662557'],
-  ['573183650526'], 
-  ['5217441298510'], 
-  ['5217294888993'],
-  ['595992611272'],
-  ['5219992843892'],
-  ['573147616444'], 
-  ['5219991402134']
->>>>>>> 76b9646979ac0ffd392d0775e8c516cbefa539c9
 ];
 // يمكنك تغير البرمجه من هنا كل ما عليك هوا تغير الاصفر مثل '✆⏐' تحط الزخرفه الخاصه بك مثل '★|•' هكذا 
 global.accc = '•SHAWAZA_BOT ♡';
@@ -62,12 +34,12 @@ global.wait = '⦓           ⦓⏳⦔      �
 global.suittag = ['5219993404349'];
 global.prems = ['51995386439'];
 
-global.packname = 'Sticker';
-global.author = 'The Mystic - Bot';
-global.wm = 'The Mystic - Bot';
-global.titulowm = 'The Mystic - Bot';
-global.titulowm2 = `The Mystic - Bot`
-global.igfg = 'The Mystic - Bot';
+global.packname = '𝗦𝗔𝗬𝗘𝗗-𝗦𝗛𝗔𝗪𝗔𝗭𝗔';
+global.author = '𝕊ℍ𝔸𝕎𝔸ℤ𝔸-𝔹𝕆𝕋';
+global.wm = '𝕊ℍ𝔸𝕎𝔸ℤ𝔸-𝔹𝕆𝕋';
+global.titulowm = '𝑺𝑯𝑨𝑾𝑨𝒁𝑨 𝑩𝑶𝑻';
+global.titulowm2 = `𝕊ℍ𝔸𝕎𝔸ℤ𝔸-𝔹𝕆𝕋`
+global.igfg = '𝕊ℍ𝔸𝕎𝔸ℤ𝔸-𝔹𝕆𝕋';
 global.wait = '*[ ⏳ ] Cargando...*';
 >>>>>>> 76b9646979ac0ffd392d0775e8c516cbefa539c9
 
