@@ -31,10 +31,10 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
 
   var messa = await prepareWAMessageMedia({ image: {url: randomVideo.thumbnail}}, { upload: conn.waUploadToServer })
   const interactiveMessage = {
-    body: { text: `*—◉ Resultados obtenidos:* ${results.videos.length}\n*—◉ Video aleatorio:*\n*-› Title:* ${randomVideo.title}\n*-› Author:* ${randomVideo.author.name}\n*-› Views:* ${randomVideo.views}\n*-› ${traductor.texto2[0]}:* ${randomVideo.url}\n*-› Imagen:* ${randomVideo.thumbnail}`.trim() },
+    body: { text: `*—◉ Resultados obtenidos:* ${results.videos.length}\n*—◉ Video aleatorio:*\n*-› Title:* ${randomVideo.title}\n*-› Author:* ${randomVideo.author.name}\n*-› Views:* ${randomVideo.views}\n*-› Link:* ${randomVideo.url}\n*-› Imagen:* ${randomVideo.thumbnail}`.trim() },
     footer: { text: `${global.wm}`.trim() },  
       header: {
-          title: `*< بحث اليوتيوب />*\n`,
+          title: `*< بحث اليوتيوب >*\n`,
           hasMediaAttachment: true,
           imageMessage: messa.imageMessage,
       },
@@ -43,21 +43,33 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
         {
           name: 'single_select',
           buttonParamsJson: JSON.stringify({
-            title: 'OPCIONES DISPONIBLES',
+            title: 'قائمة النتائج',
             sections: videos.map((video) => ({
               title: video.title,
               rows: [
                 {
                   header: video.title,
                   title: video.author.name,
-                  description: 'Descargar MP3',
+                  description: '🎧 MP3',
                   id: `${prefijo}play.1 ${video.url}`
                 },
                 {
                   header: video.title,
                   title: video.author.name,
-                  description: 'Descargar MP4',
+                  description: '🎥 MP4',
                   id: `${prefijo}play.2 ${video.url}`
+                },
+                   {
+                  header: video.title,
+                  title: video.author.name,
+                  description: '🎧 File MP3',
+                  id: `${prefijo}صوتيات ${video.url}`
+                },
+                  {
+                  header: video.title,
+                  title: video.author.name,
+                  description: '🎥 File MP4',
+                  id: `${prefijo}فيديوهات ${video.url}`
                 }
               ]
             }))
