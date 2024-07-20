@@ -69,7 +69,7 @@ export async function handler(chatUpdate) {
         if (!isNumber(user.joincount)) user.joincount = 2;
         if (!isNumber(user.limit)) user.limit = 20;
         if (!isNumber(user.money)) user.money = 15;
-        if (!('language' in user)) user.language = 'es';
+        if (!('language' in user)) user.language = 'ar';
         if (!('registered' in user)) user.registered = false;
         if (!user.registered) {
           if (!('name' in user)) user.name = m.name;
@@ -900,7 +900,7 @@ export async function handler(chatUpdate) {
           wolflastfeed: 0,
           wood: 0,
           wortel: 0,
-          language: 'es',
+          language: 'ar',
           gameglx: {},
         };
       }
@@ -1124,7 +1124,7 @@ export async function handler(chatUpdate) {
         global.db.data.chats[m.chat] = {};
       }
       if (chat) {
-        if (!('language' in chat)) chat.language = 'es';
+        if (!('language' in chat)) chat.language = 'ar';
         if (!('isBanned' in chat)) chat.isBanned = false;
         if (!('welcome' in chat)) chat.welcome = true;
         if (!('detect' in chat)) chat.detect = true;
@@ -1175,7 +1175,7 @@ export async function handler(chatUpdate) {
           simi: false,
           game: true,
           expired: 0,
-          language: 'es',
+          language: 'ar',
         };
       }
       const settings = global.db.data.settings[this.user.jid];
@@ -1187,7 +1187,7 @@ export async function handler(chatUpdate) {
         if (!('restrict' in settings)) settings.restrict = false;
         if (!('antiCall' in settings)) settings.antiCall = false;
         if (!('antiPrivate' in settings)) settings.antiPrivate = false;
-        if (!('modejadibot' in settings)) settings.modejadibot = true;
+        if (!('modejadibot' in settings)) settings.modejadibot = false;
         if (!('antispam' in settings)) settings.antispam = false;
         if (!('audios_bot' in settings)) settings.audios_bot = true;
         if (!('modoia' in settings)) settings.modoia = false;
@@ -1199,7 +1199,7 @@ export async function handler(chatUpdate) {
           restrict: false,
           antiCall: false,
           antiPrivate: false,
-          modejadibot: true,
+          modejadibot: false,
           antispam: false,
           audios_bot: true,
           modoia: false
@@ -1635,8 +1635,8 @@ export async function participantsUpdate({ id, participants, action }) {
                   ppgp = await this.profilePictureUrl(id, 'image');
                 } catch (error) {
                   console.error(`حدث خطأ أثناء استرداد الصورة الشخصية: ${error}`);
-                  pp = 'https://telegra.ph/file/f4f9d2420ac2b1072eb2e.jpg'; // Assign default image URL
-                  ppgp = 'https://telegra.ph/file/f4f9d2420ac2b1072eb2e.jpg'; // Assign default image URL
+                  pp = img6; // Assign default image URL
+                  ppgp = img1; // Assign default image URL
                 } finally {
                   let text = (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user')
                     .replace('@subject', await this.getName(id))
@@ -1677,8 +1677,8 @@ export async function participantsUpdate({ id, participants, action }) {
                   ppgp = await this.profilePictureUrl(id, 'image');
                 } catch (error) {
                   console.error(`حدث خطأ أثناء استرداد الصورة الشخصية: ${error}`);
-                  pp = 'https://telegra.ph/file/f4f9d2420ac2b1072eb2e.jpg'; // Assign default image URL
-                  ppgp = 'https://telegra.ph/file/f4f9d2420ac2b1072eb2e.jpg'; // Assign default image URL
+                  pp = img6; // Assign default image URL
+                  ppgp = img5; // Assign default image URL
                 } finally {
                   let text = (chat.sBye || this.bye || conn.bye || 'اهلا, @user')
                     .replace('@user', '@' + user.split('@')[0]);
