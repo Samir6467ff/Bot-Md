@@ -1209,7 +1209,7 @@ export async function handler(chatUpdate) {
       console.error(e);
     }
 
-    const idioma = global.db.data.users[m.sender]?.language || 'es';
+    const idioma = global.db.data.users[m.sender]?.language || 'ar';
     const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
     const tradutor = _translate.handler.handler
 
@@ -1613,7 +1613,7 @@ export async function participantsUpdate({ id, participants, action }) {
    * Opção de tradução de idioma
    * 
    ***********************/
-  const idioma = global.db.data.chats[id]?.language || 'es';
+  const idioma = global.db.data.chats[id]?.language || 'ar';
   const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
   const tradutor = _translate.handler.participantsUpdate
 
@@ -1730,7 +1730,7 @@ export async function participantsUpdate({ id, participants, action }) {
  */
 export async function groupsUpdate(groupsUpdate) {
   //console.log(groupsUpdate)
-  const idioma = global.db.data.chats[groupsUpdate[0].id]?.language || 'es';
+  const idioma = global.db.data.chats[groupsUpdate[0].id]?.language || 'ar';
   const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
   const tradutor = _translate.handler.participantsUpdate
 
@@ -1761,9 +1761,9 @@ export async function callUpdate(callUpdate) {
       if (nk.status == 'offer') {
         const callmsg = await mconn.conn.reply(nk.from, `يــا *@${nk.from.split('@')[0]}*, مـمـنـوع الـاتـصــال مـكـالـمـة ${nk.isVideo ? 'فيديو' : 'صوت'} انــهــا لــيـــســت مــسـموحـة, ســيـتـم حـظـرگ الآن.\n-\nاذا كــان اتــصــالـك عـن طــريــق الـخـطـأ راســل الــمـطـوࢪ لـرفـع الـحـظـر عنــگ`, false, { mentions: [nk.from] });
         
-        const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;𝒁𝑬𝒁𝑶 3𝑴𝑲;;;\nFN:𝒁𝑬𝒁𝑶 3𝑴𝑲 ❤️‍🔥\nORG:𝒁𝑬𝒁𝑶 3𝑴𝑲 👑\nTITLE:\nitem1.TEL;waid=201508628077:+201 508 628 077\nitem1.X-ABLabel:𝒁𝑬𝒁𝑶 3𝑴𝑲 👑\nX-WA-BIZ-DESCRIPTION:[❗] راســـل الــمــطــوࢪ لـيـࢪفـع عــنـك الـحـظـر\nX-WA-BIZ-NAME:𝒁𝑬𝒁𝑶 3𝑴𝑲 👑\nEND:VCARD`;
+        const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;𝗦𝗔𝗬𝗘𝗗-𝗦𝗛𝗔𝗪𝗔𝗭𝗔;;;\nFN:𝗦𝗔𝗬𝗘𝗗-𝗦𝗛𝗔𝗪𝗔𝗭𝗔\nORG:𝗦𝗔𝗬𝗘𝗗-𝗦𝗛𝗔𝗪𝗔𝗭𝗔\nTITLE:\nitem1.TEL;waid=201145624848:+201145624848\nitem1.X-ABLabel:𝗦𝗔𝗬𝗘𝗗-𝗦𝗛𝗔𝗪𝗔𝗭𝗔\nX-WA-BIZ-DESCRIPTION:[❗] راســـل الــمــطــوࢪ لـيـࢪفـع عــنـك الـحـظـر\nX-WA-BIZ-NAME:𝗦𝗔𝗬𝗘𝗗-𝗦𝗛𝗔𝗪𝗔𝗭𝗔\nEND:VCARD`;
 
-        await mconn.conn.sendMessage(nk.from, { contacts: { displayName: '𝒁𝑬𝒁𝑶 3𝑴𝑲 👑', contacts: [{ vcard }] } }, { quoted: callmsg });
+        await mconn.conn.sendMessage(nk.from, { contacts: { displayName: '𝗦𝗔𝗬𝗘𝗗-𝗦𝗛𝗔𝗪𝗔𝗭𝗔', contacts: [{ vcard }] } }, { quoted: callmsg });
         await mconn.conn.updateBlockStatus(nk.from, 'block');
       }
     }
@@ -1773,14 +1773,14 @@ export async function callUpdate(callUpdate) {
 export async function deleteUpdate(message) {
   const datas = global
   const id = message.participant // Obtenga la identificación del usuario, solo dentro de esta función "deleteUpdate"
-  const idioma = datas.db.data.users[id]?.language || 'es';
+  const idioma = datas.db.data.users[id]?.language || 'ar';
   const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
   const tradutor = _translate.handler.deleteUpdate
 
 
   let d = new Date(new Date + 3600000)
-  let date = d.toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'numeric' })
-  let time = d.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true })
+  let date = d.toLocaleDateString('ar', { day: 'numeric', month: 'long', year: 'numeric' })
+  let time = d.toLocaleString('ar-EG', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true })
   try {
     const { fromMe, id, participant } = message
     if (fromMe) return
@@ -1789,12 +1789,17 @@ export async function deleteUpdate(message) {
     if (!chat?.antidelete) return
     if (!msg) return
     if (!msg?.isGroup) return
-    const antideleteMessage = `${tradutor.texto1[0]}
-${tradutor.texto1[1]} @${participant.split`@`[0]}
-${tradutor.texto1[2]} ${time}
-${tradutor.texto1[3]} ${date}\n
-${tradutor.texto1[4]}
-${tradutor.texto1[5]}`.trim();
+    const antideleteMessage = `
+┏━━━━━━━━⬣  مضاد الحذف  ⬣━━━━━━━━■
+*■ المستخدم:* @${participant.split`@`[0]}
+*■ الساعه:* ${time}
+*■ التاريخ:* ${date}
+*■ ارسال الرساله المحذوفة...*
+    
+*■ لتعطيل هذا الامر, استعمل هذا الامر:*
+*■—◉ #اقفل مضادالحذف*
+┗━━━━━━━━⬣  مضاد الحذف  ⬣━━━━━━━━■`.trim();
+    
     await mconn.conn.sendMessage(msg.chat, { text: antideleteMessage, mentions: [participant] }, { quoted: msg })
     mconn.conn.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
   } catch (e) {
@@ -1804,21 +1809,22 @@ ${tradutor.texto1[5]}`.trim();
 
 global.dfail = (type, m, conn) => {
   const datas = global
-  const idioma = datas.db.data.users[m.sender].language || 'es';
+  const idioma = datas.db.data.users[m.sender].language || 'ar';
   const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
   const tradutor = _translate.handler.dfail
 
       const msg = {
-    rowner:'يــا صــديـقـي هــذا الـامــࢪ لـلـمـطـوࢪ فـقــط「 🚨 」',
-    owner:'يــا صــديـقـي هــذا الـامــࢪ لـلـمـطـوࢪ فـقــط「 🚨 」',
-    mods: '',
-    premium:'',
-    group:'هــذا الـامــࢪ فـى الــجــࢪوبــات فـقــط「 🚨 」',
-    private:'هــذا الـامــࢪ فـى الــخـاص فـقـط「 🚨 」',
-    admin:'هــذا الـامــࢪ لـلادمــن فـقــط「 🚨 」',
-    botAdmin:'「 مــࢪحـبـا 」\nاࢪفــعـنـي ادمــن وســأعـمــل 🐦',
-    unreg:'「 تــحــذيــࢪ 🚨 」\nلــســت مــســجــل لــلــتــسـجـيـل اكــتــب\n.سجلني اسمك.عمرك',
-    restrict:'تــم تــفــعـيـل الــتـقـيــيـد「 🚨 」',
+
+    rowner: '╮───────────────╭ـ\n│ *➣ الميزه دي للمطور بس! ┇🧞*\n╯───────────────╰ـ',
+      owner: '╮───────────────╭ـ\n│ *➣ الميزه دي للمطور بس! ┇🧞*\n╯───────────────╰ـ',
+      mods: '╮───────────────╭ـ\n│ *➣ الميزه دي لمالك البوت فقط! ┇🧞*\n╯───────────────╰ـ',
+      premium: '╮───────────────╭ـ\n│ *➣ الميزه دي للأعضاء المميزين فقط! ┇🧞*\n╯───────────────╰ـ',
+      group: '╮───────────────╭ـ\n│ *➣ الميزه دي في الجروبات فقط! ┇🧞*\n╯───────────────╰ـ',
+      private: '╮───────────────╭ـ\n│ *➣ الميزه دي في الخاص فقط! ┇🧞*\n╯───────────────╰ـ',
+      admin: '╮───────────────╭ـ\n│ *➣ الميزه دي للادمنز - المشرفين فقط! ┇🧞*\n╯───────────────╰ـ',
+      botAdmin: '╮───────────────╭ـ\n│ *➣ ارفع البوت ادمن الاول! ┇🧞*\n╯───────────────╰ـ',
+      unreg: '╮───────────────╭ـ\n│ *[ لحظة !! انت مش مسجل ]*\n│ *『 سجل الامر عشان تفعله 』*\n│ *➣ #تفعيل الاسم.السن\n│ *➣مثل : #تفعيل سوكونا.18\n╯───────────────╰ـ',
+      restrict: '╮───────────────╭ـ\n│ *➣ تم الغاء الأمر من قبل المطور! ┇🧞*\n╯───────────────╰ـ',
   }[type];
   const aa = { quoted: m, userJid: conn.user.jid };
   const prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title:'「 تــــحــذيـــر!! 」', body:'𝒁𝑬𝒁𝑶 3𝑴𝑲', thumbnail:imagen1, sourceUrl:'https://atom.bio/zyad_yasser' } } } }, aa);
