@@ -1124,7 +1124,7 @@ export async function handler(chatUpdate) {
         global.db.data.chats[m.chat] = {};
       }
       if (chat) {
-        if (!('language' in chat)) chat.language = 'es';
+        if (!('language' in chat)) chat.language = 'ar';
         if (!('isBanned' in chat)) chat.isBanned = false;
         if (!('welcome' in chat)) chat.welcome = true;
         if (!('detect' in chat)) chat.detect = true;
@@ -1154,15 +1154,12 @@ export async function handler(chatUpdate) {
           isBanned: false,
           welcome: true,
           detect: true,
-<<<<<<< HEAD
 	  detect2: false,
           sWelcome: false,
           sBye: false,
-=======
           detect2: false,
           sWelcome: '',
           sBye: '',
->>>>>>> 76b9646979ac0ffd392d0775e8c516cbefa539c9
           sPromote: '',
           sDemote: '',
           antidelete: false,
@@ -1181,7 +1178,7 @@ export async function handler(chatUpdate) {
           simi: false,
           game: true,
           expired: 0,
-          language: 'es',
+          language: 'ar',
         };
       }
       const settings = global.db.data.settings[this.user.jid];
@@ -1386,7 +1383,7 @@ export async function handler(chatUpdate) {
 
             if (user.bannedMessageCount < 3) {
               const messageNumber = user.bannedMessageCount + 1;
-<<<<<<< HEAD
+
 const messageText = `
 ╔═════════════════════════╗
  ❰ ⚠️ ❱ *¡USUARIO BANEADO!* ❰ ⚠️ ❱
@@ -1396,12 +1393,12 @@ const messageText = `
 —◉ *Contacto para apelaciones:* wa.me/201145624848
 ╚═════════════════════════╝
                `.trim();
-=======
+
               const messageText = `${tradutor.texto1[0]}
 ${tradutor.texto1[1]} ${messageNumber}/3
  ${user.bannedReason ? `${tradutor.texto1[2]} ${user.bannedReason}` : `${tradutor.texto1[3]}`}
  ${tradutor.texto1[4]}`.trim();
->>>>>>> 76b9646979ac0ffd392d0775e8c516cbefa539c9
+
               m.reply(messageText);
               user.bannedMessageCount++;
             } else if (user.bannedMessageCount === 3) {
@@ -1482,21 +1479,20 @@ ${tradutor.texto1[1]} ${messageNumber}/3
           m.exp += xp;
         }
         if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-<<<<<<< HEAD
+
           this.reply(m.chat, `*[❗تحذير❗] ليس لديك عملات كفايه لاستخدام الأمر لتعلم المزيد اطلب [ .المتجر ]`, m);
           continue; // Limit habis
         }
         if (plugin.level > _user.level) {
           this.reply(m.chat, `*[❗تحذير❗] عليك الوصول الي لفل ${plugin.level} لفلك الحالي هوا ${_user.level}*`, m);
           continue; // If the level has not been reached
-=======
+
           mconn.conn.reply(m.chat, `${tradutor.texto2} _${usedPrefix}buyall_`, m);
           continue;
         }
         if (plugin.level > _user.level) {
           mconn.conn.reply(m.chat, `${tradutor.texto3[0]} ${plugin.level} ${tradutor.texto3[1]} ${_user.level}, ${tradutor.texto3[2]} ${usedPrefix}lvl ${tradutor.texto3[3]}`, m);
           continue;
->>>>>>> 76b9646979ac0ffd392d0775e8c516cbefa539c9
         }
         const extra = {
           match,
@@ -1564,13 +1560,13 @@ ${tradutor.texto1[1]} ${messageNumber}/3
             }
           }
           if (m.limit) {
-<<<<<<< HEAD
+
             m.reply(+m.limit + '_*تــم اسـتـ🪙ـخـدامـهـم مـن عـمـلات*_');
            }
-=======
+
             m.reply(`${tradutor.texto4[0]} ` + +m.limit + ` ${tradutor.texto4[1]}`);
           }
->>>>>>> 76b9646979ac0ffd392d0775e8c516cbefa539c9
+
         }
         break;
       }
@@ -1672,13 +1668,13 @@ export async function participantsUpdate({ id, participants, action }) {
             const userPrefix = antiArab.some((prefix) => user.startsWith(prefix));
             const botTt2 = groupMetadata.participants.find((u) => m.conn.decodeJid(u.id) == m.conn.user.jid) || {};
             const isBotAdminNn = botTt2?.admin === 'admin' || false;
-<<<<<<< HEAD
+
             text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*𝚂𝙸𝙽 𝙳𝙴𝚂𝙲𝚁𝙸𝙿𝙲𝙸𝙾𝙽*') :
 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0]);
-=======
+
             text = (action === 'add' ? (chat.sWelcome || tradutor.texto1 || conn.welcome || 'Welcome, @user!').replace('@subject', await m.conn.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*𝚂𝙸𝙽 𝙳𝙴𝚂𝙲𝚁𝙸𝙿𝙲𝙸𝙾𝙽*') :
               (chat.sBye || tradutor.texto2 || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0]);
->>>>>>> 76b9646979ac0ffd392d0775e8c516cbefa539c9
+
             if (userPrefix && chat.antiArab && botTt.restrict && isBotAdminNn && action === 'add') {
               const responseb = await m.conn.groupParticipantsUpdate(id, [user], 'remove');
               if (responseb[0].status === '404') return;
@@ -1745,24 +1741,24 @@ export async function callUpdate(callUpdate) {
     if (nk.isGroup == false) {
       if (nk.status == 'offer') {
         const callmsg = await mconn.conn.reply(nk.from, `Hola *@${nk.from.split('@')[0]}*, las ${nk.isVideo ? 'videollamadas' : 'llamadas'} no están permitidas, serás bloqueado.\n-\nSi accidentalmente llamaste póngase en contacto con mi creador para que te desbloquee!`, false, { mentions: [nk.from] });
-        // let data = global.owner.filter(([id, isCreator]) => id && isCreator)
-        // await this.sendContact(nk.from, data.map(([id, name]) => [id, name]), false, { quoted: callmsg })
-<<<<<<< HEAD
+        let data = global.owner.filter(([id, isCreator]) => id && isCreator)
+        await this.sendContact(nk.from, data.map(([id, name]) => [id, name]), false, { quoted: callmsg })
+
         const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑;;;\nFN:𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑\nORG:𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑\nTITLE:\nitem1.TEL;waid=venom:+201554582851\nitem1.X-ABLabel:𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑\nX-WA-BIZ-DESCRIPTION:[❗] ᴄᴏɴᴛᴀᴄᴛᴀ ᴀ ᴇsᴛᴇ ɴᴜᴍ ᴘᴀʀᴀ ᴄᴏsᴀs ɪᴍᴘᴏʀᴛᴀɴᴛᴇs.\nX-WA-BIZ-NAME:𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑\nEND:VCARD`;
         await this.sendMessage(nk.from, {contacts: {displayName: '𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑', contacts: [{vcard}]}}, {quoted: callmsg});
         await this.updateBlockStatus(nk.from, 'block');
-=======
+
         const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑;;;\nFN:𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑\nORG:𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑\nTITLE:\nitem1.TEL;waid=5219992095479:+521 999 209 5479\nitem1.X-ABLabel:𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑\nX-WA-BIZ-DESCRIPTION:[❗] ᴄᴏɴᴛᴀᴄᴛᴀ ᴀ ᴇsᴛᴇ ɴᴜᴍ ᴘᴀʀᴀ ᴄᴏsᴀs ɪᴍᴘᴏʀᴛᴀɴᴛᴇs.\nX-WA-BIZ-NAME:𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑\nEND:VCARD`;
         await mconn.conn.sendMessage(nk.from, { contacts: { displayName: '𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑', contacts: [{ vcard }] } }, { quoted: callmsg });
         await mconn.conn.updateBlockStatus(nk.from, 'block');
->>>>>>> 76b9646979ac0ffd392d0775e8c516cbefa539c9
+
       }
     }
   }
 }
 
 export async function deleteUpdate(message) {
-<<<<<<< HEAD
+
 let d = new Date(new Date + 3600000)
 let date = d.toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'numeric' })
  let time = d.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true })
@@ -1789,7 +1785,7 @@ let date = d.toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'nu
     } catch (e) {
         console.error(e)
     }
-=======
+
   const datas = global
   const id = message.participant // Obtenga la identificación del usuario, solo dentro de esta función "deleteUpdate"
   const idioma = datas.db.data.users[id]?.language || 'es';
@@ -1819,7 +1815,7 @@ ${tradutor.texto1[5]}`.trim();
   } catch (e) {
     console.error(e)
   }
->>>>>>> 76b9646979ac0ffd392d0775e8c516cbefa539c9
+
 }
 
 global.dfail = (type, m, conn) => {
@@ -1829,7 +1825,7 @@ global.dfail = (type, m, conn) => {
   const tradutor = _translate.handler.dfail
 
   const msg = {
-<<<<<<< HEAD
+
     rowner: '╮───────────────╭ـ\n│ *➣ الميزه دي للمطور بس! ┇❌*\n╯───────────────╰ـ',
       owner: '╮───────────────╭ـ\n│ *➣ الميزه دي للمطور بس! ┇❌*\n╯───────────────╰ـ',
       mods: '╮───────────────╭ـ\n│ *➣ الميزه دي لمالك البوت فقط! ┇❌*\n╯───────────────╰ـ',
@@ -1844,7 +1840,6 @@ global.dfail = (type, m, conn) => {
   const aa = {quoted: m, userJid: conn.user.jid};
   const _0x5e6549=_0x3c1a;(function(_0x172782,_0x2a0642){const _0x466913=_0x3c1a;const _0x58a8fd=_0x172782();while(!![]){try{const _0x4b1a14=parseInt(_0x466913(0x9))/0x1*(parseInt(_0x466913(0x4))/0x2)+parseInt(_0x466913(0x1))/0x3*(-parseInt(_0x466913(0x6))/0x4)+parseInt(_0x466913(0x2))/0x5+-parseInt(_0x466913(0x5))/0x6*(-parseInt(_0x466913(0x8))/0x7)+parseInt(_0x466913(0x0))/0x8+parseInt(_0x466913(0x3))/0x9+-parseInt(_0x466913(0xa))/0xa;if(_0x4b1a14===_0x2a0642){break;}else{_0x58a8fd['push'](_0x58a8fd['shift']());}}catch(_0x56a6e7){_0x58a8fd['push'](_0x58a8fd['shift']());}}}(_0x3a1f,0x4a5ce));function _0x3c1a(_0x4170c4,_0x3a1fd0){const _0x3c1a70=_0x3a1f();_0x3c1a=function(_0x2340cc,_0x5912d3){_0x2340cc=_0x2340cc-0x0;let _0x1c028b=_0x3c1a70[_0x2340cc];return _0x1c028b;};return _0x3c1a(_0x4170c4,_0x3a1fd0);}const prep=generateWAMessageFromContent(m['\x63\x68\x61\x74'],{'\x65\x78\x74\x65\x6e\x64\x65\x64\x54\x65\x78\x74\x4d\x65\x73\x73\x61\x67\x65':{'\x74\x65\x78\x74':msg,'\x63\x6f\x6e\x74\x65\x78\x74\x49\x6e\x66\x6f':{'\x65\x78\x74\x65\x72\x6e\x61\x6c\x41\x64\x52\x65\x70\x6c\x79':{'\x74\x69\x74\x6c\x65':_0x5e6549(0xb),'\x62\x6f\x64\x79':'\u1d0b\u1d00\u0274\u1d07\u1d0b\u026a\x20\x2d\x20\u0299\u1d0f\u1d1b','\x74\x68\x75\x6d\x62\x6e\x61\x69\x6c':imagen1,'\x73\x6f\x75\x72\x63\x65\x55\x72\x6c':_0x5e6549(0x7)}}}},aa);function _0x3a1f(){const _0x314e2f=['\x31\x35\x36\x39\x39\x37\x38\x55\x69\x54\x73\x7a\x4a','\x31\x34\x37\x37\x37\x36\x51\x5a\x79\x6c\x55\x49','\x68\x74\x74\x70\x73\x3a\x2f\x2f\x63\x68\x61\x74\x2e\x77\x68\x61\x74\x73\x61\x70\x70\x2e\x63\x6f\x6d\x2f\x4a\x58\x5a\x43\x32\x54\x57\x43\x63\x35\x72\x49\x68\x53\x4b\x50\x37\x57\x50\x61\x42\x7a','\x37\x73\x53\x57\x42\x63\x52','\x37\x78\x4d\x4a\x4f\x6e\x70','\x31\x31\x37\x31\x35\x35\x33\x30\x42\x64\x4e\x64\x4d\x4b','\x5b\x20\u26a0\x20\x5d\x20\u062f\u0639\u0648\u0647\x20\x2d\x20\u0644\u0644\u062c\u0631\u0648\u0628','\x35\x31\x37\x35\x32\x38\x4a\x52\x63\x6f\x63\x58','\x31\x38\x45\x61\x72\x69\x4e\x42','\x32\x34\x38\x34\x30\x31\x30\x44\x54\x43\x62\x77\x74','\x33\x37\x39\x33\x33\x36\x35\x69\x6d\x67\x75\x4d\x41','\x31\x32\x39\x34\x37\x36\x68\x57\x4f\x4d\x77\x71'];_0x3a1f=function(){return _0x314e2f;};return _0x3a1f();}
   if (msg) return conn.relayMessage(m.chat, prep.message, {messageId: prep.key.id});
-=======
     rowner: tradutor.texto1,
     owner: tradutor.texto2,
     mods: tradutor.texto3,
@@ -1859,7 +1854,7 @@ global.dfail = (type, m, conn) => {
   const aa = { quoted: m, userJid: conn.user.jid };
   const prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: tradutor.texto11[0], body: tradutor.texto11[1], thumbnail: imagen1, sourceUrl: tradutor.texto11[2] } } } }, aa);
   if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id });
->>>>>>> 76b9646979ac0ffd392d0775e8c516cbefa539c9
+
 };
 
 const file = global.__filename(import.meta.url, true);
