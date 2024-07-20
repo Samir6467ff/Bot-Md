@@ -1,3 +1,4 @@
+/*
 import { generateWAMessageFromContent } from '@whiskeysockets/baileys';
 import { smsg } from './lib/simple.js';
 import { format } from 'util';
@@ -9,9 +10,7 @@ import chalk from 'chalk';
 import mddd5 from 'md5';
 import ws from 'ws';
 
-/**
- * @type {import('@whiskeysockets/baileys')}
- */
+
 const { proto } = (await import('@whiskeysockets/baileys')).default;
 const isNumber = (x) => typeof x === 'number' && !isNaN(x);
 const delay = (ms) => isNumber(ms) && new Promise((resolve) => setTimeout(function () {
@@ -19,10 +18,7 @@ const delay = (ms) => isNumber(ms) && new Promise((resolve) => setTimeout(functi
   resolve();
 }, ms));
 
-/**
- * Handle messages upsert
- * @param {import('@whiskeysockets/baileys').BaileysEventMap<unknown>['messages.upsert']} groupsUpdate
- */
+
 export async function handler(chatUpdate) {
   this.msgqueque = this.msgqueque || [];
   this.uptime = this.uptime || Date.now();
@@ -1839,3 +1835,4 @@ watchFile(file, async () => {
   }
 
 });
+*//
