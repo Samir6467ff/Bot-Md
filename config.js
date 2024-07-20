@@ -11,7 +11,7 @@ global.botnumber = ""
 global.confirmCode = ""
 
 global.owner = [
-  ['201145624848', 'SAYED-SHAWAZA', true]
+  ['201145624848', '𝗦𝗔𝗬𝗘𝗗-𝗦𝗛𝗔𝗪𝗔𝗭𝗔', true]
 ];
 
 global.ownername = '𝚂𝙰𝚈𝙴𝙳-𝚂𝙷𝙰𝚆𝙰𝚉𝙰';
@@ -32,7 +32,8 @@ global.styel2 = ' 〙 ─ ⳹';
 global.styel3 = '│✑ 「 ';
 global.styel4 = ' 」';
 global.styel5 = '└┬ ✑ 「 ';
-global.styel6 = '└───────────────┈ ⳹';
+global.styel6 = '│✑ ';
+global.styel7 = '└───────────────┈ ⳹';
 
 
 
@@ -46,6 +47,14 @@ global.imagen7 = fs.readFileSync('./Menu.png');
 global.imagen8 = fs.readFileSync('./Menu.png')
 global.imagen9 = fs.readFileSync('./Menu.png')
 global.imagen10 = fs.readFileSync('./Menu.png')
+
+global.img1 = 'https://telegra.ph/file/ba984d78fa802662438ee.jpg';
+global.img2 = 'https://telegra.ph/file/0e22282b399e105776618.jpg';
+global.img3 = 'https://telegra.ph/file/5e6456d22a8264b08a2bc.jpg';
+global.img4 = 'https://telegra.ph/file/996f53288a1e2f4f35812.jpg';
+global.img5 = 'https://telegra.ph/file/07cd1c2a9d2fe455e3b77.jpg';
+global.img6 = 'https://telegra.ph/file/fbac075550b8622a94b8e.jpg';
+
 
 global.mods = [];
 
