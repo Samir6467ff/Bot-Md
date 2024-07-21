@@ -8,12 +8,13 @@ handler.before = async function (m) {
     if (!(id in this.tekateki)) return
     if (m.quoted.id == this.tekateki[id][0].id) {
         let json = JSON.parse(JSON.stringify(this.tekateki[id][1]))
+        let answer = json.response;
         if (m.text.toLowerCase() == json.response.toLowerCase().trim()) {
             global.db.data.users[m.sender].exp += this.tekateki[id][2]
             m.reply(`
 ╮───────────────────────╭ـ
 │ 👏🏻 *أحسنت لقد فزت إجابتك صحيحة 🧞*
-│ 💰 *جائزتك : ❲ ${this.tekateki[id][2]} ❳ نقطه 🧞*
+│ 💰 *جائزتـك : ❲ ${this.tekateki[id][2]} ❳ نقطه 🧞*
 ╯───────────────────────╰ـ`.trim())
             clearTimeout(this.tekateki[id][3])
             delete this.tekateki[id]
@@ -22,10 +23,16 @@ handler.before = async function (m) {
             m.reply(`
 ╮───────────────────────╭ـ
 │ 😒 *يالك من فاشل لقد انسحبت 🧞*
-│ 💰 *الخسارة : ❲ ${this.tekateki[id][2]} ❳ نقطه 🧞*
+│ 💰 *الخسـارة : ❲ ${this.tekateki[id][2]} ❳ نقطه 🧞*
 ╯───────────────────────╰ـ`.trim())
             clearTimeout(this.tekateki[id][3])
             delete this.tekateki[id]
+        } else if (m.text.toLowerCase() == 'تلميح') {            
+        m.reply(`
+╮───────────────────────╭ـ
+│ 😒 *يالك من فاشل لا تستطيع الإجابة بمفردك 🧞*
+│ ❗ *الاجـابة : ❲ ${answer} ❳ 🧞*
+╯───────────────────────╰ـ`.trim())          
         } else if (similarity(m.text.toLowerCase(), json.response.toLowerCase().trim()) >= threshold) {
             m.reply(`
 ╮───────────────────────╭ـ
