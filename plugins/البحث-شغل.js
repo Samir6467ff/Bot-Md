@@ -78,15 +78,29 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
                               {
                                   name: 'quick_reply',
                                   buttonParamsJson: JSON.stringify({
-                                      display_text: 'الصوت🎧',
+                                      display_text: 'صـوت 🎧',
                                       id: `${usedPrefix}play.1 ${data.resultado.url} SN@`
                                   })
                               },
                               {
                                   name: 'quick_reply',
                                   buttonParamsJson: JSON.stringify({
-                                      display_text: 'الفيديو📽️',
+                                      display_text: 'ملـف صـوت 📼',
+                                      id: `${usedPrefix}صوتيات ${data.resultado.url} SN@`
+                                  })
+                              },
+                             {
+                                  name: 'quick_reply',
+                                  buttonParamsJson: JSON.stringify({
+                                      display_text: 'فيـديو 🎥',
                                       id: `${usedPrefix}play.2 ${data.resultado.url} SN@`
+                                  })
+                              },
+                             {
+                                  name: 'quick_reply',
+                                  buttonParamsJson: JSON.stringify({
+                                      display_text: 'ملـف فيـديو 🎬',
+                                      id: `${usedPrefix}فيديوهات ${data.resultado.url} SN@`
                                   })
                               },   
                           ],
