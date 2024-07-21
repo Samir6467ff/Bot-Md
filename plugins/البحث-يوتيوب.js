@@ -50,25 +50,25 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                 {
                   header: video.title,
                   title: video.author.name,
-                  description: '🎧 MP3',
+                  description: '🎧 صـوت',
                   id: `${prefijo}play.1 ${video.url}`
-                },
-                {
-                  header: video.title,
-                  title: video.author.name,
-                  description: '🎥 MP4',
-                  id: `${prefijo}play.2 ${video.url}`
-                },
-                   {
-                  header: video.title,
-                  title: video.author.name,
-                  description: '🎧 File MP3',
-                  id: `${prefijo}صوتيات ${video.url}`
                 },
                   {
                   header: video.title,
                   title: video.author.name,
-                  description: '🎥 File MP4',
+                  description: '📼 ملـف صـوت',
+                  id: `${prefijo}صوتيات ${video.url}`
+                },
+                {
+                  header: video.title,
+                  title: video.author.name,
+                  description: '🎥 فيـديو',
+                  id: `${prefijo}play.2 ${video.url}`
+                },                
+                  {
+                  header: video.title,
+                  title: video.author.name,
+                  description: '🎬 ملـف فيـديو',
                   id: `${prefijo}فيديوهات ${video.url}`
                 }
               ]
